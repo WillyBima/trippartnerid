@@ -1,0 +1,31 @@
+.title-detail{
+  font-family: Cambria;
+  font-size: 28px;
+  font-weight: bold;
+  color: #25aae2;
+}
+
+.title-detail-bus{
+  font-family: Cambria;
+  font-size: 25px;
+  color: #25aae2
+}
+
+.title-detail-harga{
+  font-family: Cambria;
+  font-size: 25px;
+  color: #f96d01;
+}
+
+.title-form{
+  font-family: Cambria;
+  font-size: 28px;
+  font-weight: bold;
+  color: #25aae2;
+}
+
+.subtitle-form{
+  font-family: Cambria;
+  font-size: 15px;
+  color: #25aae2
+}

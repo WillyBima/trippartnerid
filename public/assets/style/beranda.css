@@ -1,0 +1,84 @@
+/* BERANDA */
+/* logo */
+.logo-triplan{
+  width: 146px;
+  height: 60px;
+  text-align: center;
+}
+
+.user-login{
+  margin-top: 35px;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #25aae2 !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #25aae2 !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #25aae2 !important;
+}
+
+.title{
+  font-family: Cambria;
+  font-size: 28px;
+  color: #25aae2;
+  margin-bottom: 0px;
+}
+
+.subtitle{
+  font-family: Cambria;
+  font-size: 13px;
+  color: #25aae2;
+}
+
+.title-manfaat{
+  font-family: Cambria;
+  font-size: 20px;
+  color: #25aae2;
+}
+
+.card-title{
+  font-family: Cambria;
+  font-size: 20px;
+  color: #25aae2;
+}
+
+.card-description{
+  font-family: Cambria;
+  font-size: 13px;
+  color: #25aae2;
+}
+
+.card-btn{
+  font-family: Cambria;
+  background-color: #f96d01;
+  color: #ffffff;
+}
+
+.card-btn:hover {
+  background-color: #ffffff;
+  color: #f96d01;
+  border-color: #f96d01;
+}
+
+.title-booking{
+  margin-left: 150px;
+  font-family: Cambria;
+  font-size: 33px;
+  color: #fff;
+  padding-top: 30px;
+  margin-bottom: 0px;
+}
+
+.subtitle-booking{
+  margin-left: 150px;
+  font-family: Cambria;
+  font-size: 16px;
+  color: #fff
+}

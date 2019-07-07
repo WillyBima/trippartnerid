@@ -1,0 +1,55 @@
+.title-about{
+  color: #25aae2;
+  font-size: 30px;
+  font-family: Cambria;
+}
+
+.desc-about{
+  color: #25aae2;
+  font-size: 15px;
+  font-family: Cambria;
+}
+
+.title-fact{
+  font-family: Cambria;
+  font-size: 25px;
+  color: #25aae2;
+}
+
+.subtitle-fact{
+  font-family: Cambria;
+  font-size: 20px;
+  color: #25aae2
+}
+
+.title-contact{
+  font-size: 25px;
+  font-family: Cambria;
+  color: #25aae2;
+  margin-bottom: 0px;
+}
+
+.subtitle-contact{
+  font-size: 15px;
+  font-family: Cambria;
+  color: #25aae2;
+  margin-bottom: 10px;
+}
+
+.title-phone{
+  font-size: 18px;
+  font-family: Cambria;
+  color: #25aae2;
+}
+
+.title-email{
+  font-size: 18px;
+  font-family: Cambria;
+  color: #25aae2;
+}
+
+.title-alamat{
+  font-size: 18px;
+  font-family: Cambria;
+  color: #25aae2;
+}

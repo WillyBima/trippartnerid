@@ -1,0 +1,38 @@
+.title-header{
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-family: Cambria;
+}
+
+.subtitle-header{
+  font-size: 15px;
+  font-family: Cambria;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.title-po{
+ color: #25aae2;
+ font-size: 30px;
+ text-align: center;
+ letter-spacing: 1px;
+ margin-bottom: 10px;
+ font-family: Cambria;
+}
+
+.title-armada{
+  color: #f96d01;
+  font-size: 20px;
+  font-family: Cambria;
+  margin-left: 25px;
+}
+
+.card-text{
+  font-family: Cambria;
+  font-size: 15px;
+  color: #25aae2
+}
