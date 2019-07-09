@@ -20,6 +20,10 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+    'mandrill' => [
+    'secret' => '25a87cea2fb116931ce4dd735c5e3e56-us3'
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-md-3 text-center" style="margin-top: 12px;">
                 <p class="judul" style="font-family: Cambria; font-size: 20px; color: #fff">Profil Perusahaan</p>
-                <p class="deskripsi" style="font-family: Century Gothic; font-size: 14px; color: #fff">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor
+                <p class="deskripsi" style="font-family: Cambria; font-size: 14px; color: #fff">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor
                   aliquet. Aenean sollicitudin, lorem quis bibendum auctor,nisi elit consequat ipsum, nec sagittis sem nibh id elit.
                   Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus </p>
             </div>
@@ -94,7 +94,7 @@
                     <div class="form-group">
                         <textarea id="keterangan" class="form-control" rows="4" style="resize: none;" placeholder="Tuliskan Keterangan"></textarea>
                     </div>
-                    <button type="button" class="btn btn-block" style="background-color: #f96d01; color: #ffffff;">Submit</button>
+                    <button type="button" class="btn btn-block" style="background-color: #f96d01; color: #ffffff; font-family: Cambria;">Submit</button>
                 </form>
             </div>
         </div>

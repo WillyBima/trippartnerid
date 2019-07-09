@@ -20,7 +20,9 @@ Route::get('/boking', 'BokingController@boking');
 Route::get('/boking/booking-sekarang/{nama_bus}', 'BokingController@bookingnow');
 Route::post('/boking/submit-order','BokingController@submitBoking');
 
+Auth::routes(['verify' => true]);
 Route::get('/daftar', 'RegisterController@daftar');
+Route::post('/daftar/daftarCustomer','RegisterController@doRegister');
 Route::get('/login', 'RegisterController@login');
 
 Route::get('/tentang', 'AboutController@about');
