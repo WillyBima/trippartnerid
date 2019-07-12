@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -16,8 +17,10 @@ use App\FasilitasBus;
 use App\Kota;
 use App\Rute;
 use App\Harga;
+use App\Admin;
 
 use PDF;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -32,10 +35,11 @@ class DashboardController extends Controller
       return view('backend.pdf',['order'=>$order]);
     }
 
+    // History
     public function menuhistory()
     {
-      $historyorder = DB::table('history_order')->select('*')->get();
-      return view('backend.history.menuHistory',['historyorder'=>$historyorder]);
+      $order = DB::table('order')->select('*')->where('status','=','Selesai')->get();
+      return view('backend.history.menuHistory',['order'=>$order]);
     }
 
     //MENU KOTA
@@ -382,11 +386,28 @@ class DashboardController extends Controller
       return view('backend.user.viewUser',compact('user'));
     }
 
-    public function hapusUser($id)
+    public function createadmin()
     {
-      User::destroy($id);
+      return view('backend.user.tambahUser');
+    }
 
-      return redirect('/MenuUser');
+    public function tambahadmin(Request $request)
+    {
+        $admin = new Admin();
+
+        $admin->nama_lengkap = $request['nama_lengkap'];
+        $admin->user_name    = $request['user_name'];
+        $admin->password     = bcrypt($request['password']);
+        $admin->user_level   = $request['user_level'];
+
+        $admin->save();
+        return redirect('/MenuUser');
+    }
+
+    public function logout()
+    {
+      Auth::guard('admin')->logout();
+      return redirect('/loginAdmin');
     }
 
     // END MENU User
@@ -394,7 +415,7 @@ class DashboardController extends Controller
     // MENU Order
     public function menuorder()
     {
-      $order = DB::table('order')->select('*')->get();
+      $order = DB::table('order')->select('*')->where('status','!=','Selesai')->get();
       return view('backend.order.menuOrder',['order'=>$order]);
     }
 
@@ -460,12 +481,6 @@ class DashboardController extends Controller
     public function adminLogin()
     {
       return view('backend.register.loginAdmin');
-    }
-
-    // daftar
-    public function adminDaftar()
-    {
-      return view('backend.register.daftarAdmin');
     }
 
 }

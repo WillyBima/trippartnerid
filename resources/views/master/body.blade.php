@@ -11,8 +11,20 @@
       </div>
 
       <div class="col-md-4" style="margin-top: 30px;">
-        <a href="{{url('/login')}}" style="font-family: Cambria; font-size: 15px; color: #f96d01; margin-left: 130px;"><img src="{{url('assets/img/icon/user.png')}}" width="30" height="30" class="" alt="" style=""> USER LOGIN</a>
-        <a href="{{url('/daftar')}}" class="btn" role="button" style="background-color: #f96d01; color: #ffffff; font-family: Cambria; margin-left: 5px;">DAFTAR</a>
+        @if(!Auth::guard('users')->user())
+        <a href="{{url('/login')}}" style="font-family: Cambria; font-size: 15px; color: #f96d01;
+        margin-left: 130px;"><img src="{{url('assets/img/icon/user.png')}}"
+        width="30" height="30" class="" alt="" style=""> USER LOGIN</a>
+
+        <a href="{{url('/daftar')}}" class="btn" role="button"
+        style="background-color: #f96d01; color: #ffffff;
+        font-family: Cambria; margin-left: 5px;">DAFTAR</a>
+        @else
+        <a href="{{url('/dashboardUser')}}" style="font-family: Cambria; font-size: 20px; color: #f96d01;
+        margin-left: 180px;"><img src="{{url('assets/img/icon/user.png')}}"
+        width="30" height="30" class="" alt="" style="">
+          {{Auth::guard('users')->user()->nama_lengkap}}</a>
+        @endif
       </div>
     </div>
   </div>

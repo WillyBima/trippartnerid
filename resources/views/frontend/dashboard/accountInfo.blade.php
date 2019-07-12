@@ -40,7 +40,7 @@
               </li>
               <hr>
               <li>
-                  <a href="#">Logout</a>
+                  <a href="{{url('/logout')}}">Logout</a>
               </li>
           </ul>
       </div>
@@ -55,50 +55,37 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>First Name</label>
-                      <input type="text" class="form-control" name="nama" placeholder="....." required>
-                    </div>
-                    <div class="form-group">
-                      <label>Email Address</label>
-                      <input type="text" class="form-control" name="nama" placeholder="....." required>
-                      <input type="checkbox" name="ubahpass" value="ubahpass"> Ganti Password<br>
+                      <label>Nama</label>
+                      <input type="text" class="form-control" name="nama_lengkap" value="{{Auth::guard('users')->user()->nama_lengkap}}">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Last Name</label>
-                      <input type="text" class="form-control" name="nama" placeholder="....." required>
+                      <label>Email</label>
+                      <input type="text" class="form-control" name="email" value="{{Auth::guard('users')->user()->email}}">
+                    </div>
+                  </div>
+                </div>
+                <h5 style="margin-top: 30px;"><b>Ubah Password</b></h5>
+                <hr style="width: auto; border-bottom: 1px solid #95a5a6;">
+                <div class="row" style="margin-top: 50px;">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Password Sekarang</label>
+                      <input type="text" class="form-control" name="password">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Password Baru</label>
+                      <input type="text" class="form-control" name="password">
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-md-12" style="border: solid 1px #95a5a6; padding: 30px; border-radius: 10px; margin-top: 40px; font-family: Cambria;">
-                <h5><b>Ganti Password</b></h5>
-                <hr style="width: auto; border-bottom: 1px solid #95a5a6;">
-                <br>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Password Sekarang</label>
-                      <input type="text" class="form-control" name="nama" placeholder="....." required>
-                    </div>
-                    <div class="form-group">
-                      <label>Password Baru</label>
-                      <input type="text" class="form-control" name="nama" placeholder="....." required>
-                      <input type="checkbox" name="ubahpass" value="ubahpass"> Ganti Password<br>
-                    </div>
-                  </div>
-                  <div class="col-md-6" style="margin-top: 86px;">
-                    <div class="form-group">
-                      <label>Konfirmasi Password Baru</label>
-                      <input type="text" class="form-control" name="nama" placeholder="....." required>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a href="" class="btn" role="button" style="padding: 10px; margin-top: 20px; margin-left: 800px; font-family: Cambria; background-color: #f96d01; color: #ffffff;">SIMPAN</a>
-              <a href="" style="color: #d35400"><img src="{{url('assets/img/icon/kembali.png')}}" alt=""> Kembali</a>
+              <a href="" class="btn" role="button" style="padding: 10px; margin-top: 20px; margin-left: 730px; font-family: Cambria; background-color: #f96d01; color: #ffffff;">Simpan Perubahan</a>
+              <a href="{{url('/dashboardUser')}}" style="color: #d35400"><img src="{{url('assets/img/icon/kembali.png')}}" alt=""> Kembali</a>
           </div>
         </div>
     </div>

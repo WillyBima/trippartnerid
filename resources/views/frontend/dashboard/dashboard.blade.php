@@ -40,7 +40,7 @@
             </li>
             <hr>
             <li>
-                <a href="#">Logout</a>
+                <a href="{{url('/logout')}}">Logout</a>
             </li>
         </ul>
     </div>
@@ -49,7 +49,7 @@
             <div class="row">
               <h4 style="margin-bottom: 20px;">MY DASHBOARD</h4>
                 <div class="col-md-12" style="border: solid 1px #95a5a6;; padding: 30px; border-radius: 10px;">
-                    <h5><b>Hallo, Willy Jonnaedi</b></h5>
+                    <h5 style="text-transform: capitalize;"><b>Hallo, {{Auth::guard('users')->user()->nama_lengkap}}</b></h5>
                     <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>
                 </div>
               <h4 style="margin-top: 30px; margin-bottom: 20px;">ACCOUNT INFORMATION</h4>
@@ -60,22 +60,24 @@
                 <div class="contactInfo" style="border: solid 1px #95a5a6;; padding: 30px; border-radius: 10px;">
                   <h5><b>Contact Information</b></h5>
                   <hr style="width: auto; border-bottom: 1px solid #95a5a6;">
-                  <img src="{{url('assets/img/icon/pencil.png')}}" style="margin-left: 350px;">
+                  <a href="{{url('/dashboardUser/accountInfo')}}"><img src="{{url('assets/img/icon/pencil.png')}}" style="margin-left: 350px;"></a>
                   <br><br>
-                  <p>Willy Jonnaedi</p>
-                  <p>alfajri.bima@gmail.com</p>
+                  <p style="text-transform: capitalize;">{{Auth::guard('users')->user()->nama_lengkap}}</p>
+                  <p>{{Auth::guard('users')->user()->email}}</p>
                 </div>
               </div>
+              @foreach($order as $order)
               <div class="col-md-6" style="padding-right: 0px;">
                 <div class="myOrder" style="border: solid 1px #95a5a6;; padding: 25px; border-radius: 10px;">
                   <h5><b>My Orders</b></h5>
                   <hr style="width: auto; border-bottom: 1px solid #95a5a6;">
-                  <a href="#" style="margin-left: 295px; color: #d35400">Lihat Detail</a>
+                  <a href="{{url('/dashboardUser/myOrder')}}" style="margin-left: 295px; color: #d35400">Lihat Detail</a>
                   <br><br>
-                  <p style="font-size: 20px;"><b><img src="{{url('assets/img/icon/bus depan.png')}}"> Depok <img src="{{url('assets/img/icon/next.png')}}" alt=""> Yogyakarta</b></p>
-                  <p>Kamis, 18 Juli 2019</p>
+                  <p style="font-size: 20px;"><b><img src="{{url('assets/img/icon/bus depan.png')}}"> {{$order->alamat_jemput}} <img src="{{url('assets/img/icon/next.png')}}" alt=""> {{$order->alamat_tujuan}}</b></p>
+                  <p>{{date('l, d F Y', strtotime($order->tanggal_pergi))}}</p>
                 </div>
               </div>
+              @endforeach
             </div>
         </div>
     </div>

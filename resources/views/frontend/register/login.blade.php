@@ -21,22 +21,23 @@
           </div>
           <div class="col-md-8" style="text-align: -webkit-center;">
             <div class="card" style="width: 500px">
-              <form class="login" style="padding: 50px;">
+              <form action="{{url('/login/loginCustomer')}}" method="post" class="login" style="padding: 50px;">
+                {{ csrf_field() }}
                 <div class="form-group">
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                   <small id="emailHelp" class="form-text text-muted text-left">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="form-group forgot-box" style="margin-top: 25px; margin-bottom: 20px;">
 			            <a href="#" style="font-family: Cambria; color: #f96d01; font-size: 13px;">Lupa Kata Sandi?</a>
 		            </div>
 
-                <a href="#" class="btn btn-block" role="button" style="font-family: Cambria; background-color: #f96d01; color: #ffffff;">Login</a>
+                <button class="btn btn-block" style="font-family: Cambria; background-color: #f96d01; color: #ffffff;">Login</button>
 
                 <p class="dont-have-account js-href" style="margin-top: 20px; font-family: Cambria;">
-            			Belum punya akun?  <a href="/daftar" data-state="register" style="font-family: Cambria; color: #f96d01; font-size: 15px;">Daftar Sekarang</a>
+            			Belum punya akun?  <a href="{{url('/daftar')}}" data-state="register" style="font-family: Cambria; color: #f96d01; font-size: 15px;">Daftar Sekarang</a>
             		</p>
               </form>
             </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminTripPartner | Menu History Order</title>
+  <title>AdminTripPartner | Menu User</title>
 
   @include('backend.master.head')
   @yield('head-backend')
@@ -26,53 +26,65 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Menu History Order
+        Tambah Data User
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/dashboardAdmin"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-        <li class="active">Menu History Order</li>
+        <li><a href="/MenuBus">Menu User</a></li>
+        <li class="active">Form Tambah Data User</li>
       </ol>
     </section>
 
     <!-- Main content -->
-    <div class="rounded" style="background: #fff; margin-top: 20px;">
-      <section class="content">
-        <div class="row">
-          <div class="col-md-12">
-              <table id="History" class="table table-bordered text-center">
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Nama Pemesan</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @php($no = 1)
-                  @foreach($order as $order)
-                  <tr>
-                    <td>{{$no}}</td>
-                    <td>{{$order->nama}}</td>
-                    <td>{{$order->status}}</td>
-                  </tr>
-                  @php($no++)
-                  @endforeach
-                </tbody>
-              </table>
+    <section class="content">
+      <div class="row" style="margin-top: 30px;">
+        <!-- left column -->
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-10">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border text-center">
+              <h3 class="box-title">Form Tambah Data User</h3>
+            </div>
+            <form role="form" action="{{url('/MenuUser/tambahadmin')}}" method="post" enctype="multipart/form-data">
+              {{ csrf_field() }}
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Nama Lengkap</label>
+                  <input type="text" class="form-control" name="nama_lengkap" placeholder="Enter ...">
+                </div>
+                <div class="form-group">
+                  <label>User Name</label>
+                  <input type="text" class="form-control" name="user_name" placeholder="Enter ...">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="Enter ...">
+                </div>
+                <div class="form-group">
+                  <label>User Level</label>
+                  <select class="form-control" name="user_level">
+                  <option value="2">Admin</option>
+                  </select>
+                </div>
+              </div>
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
-        <!-- /.row -->
-      </section>
-    </div>
+        <div class="col-md-1">
+        </div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </section>
     <!-- /.content -->
   </div>
-
-  <script type="text/javascript">
-      $(document).ready( function () {
-      $('#History').DataTable();
-      } );
-  </script>
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -276,7 +288,6 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-
 <!-- ./wrapper -->
 </body>
 </html>

@@ -40,40 +40,54 @@
               </li>
               <hr>
               <li>
-                  <a href="#">Logout</a>
+                  <a href="{{url('/logout')}}">Logout</a>
               </li>
           </ul>
       </div>
     <div id="page-content-container" style="padding-left: 130px;padding-top: 0px;padding-right: 85px; font-family: Cambria;">
         <div class="container-fluid">
+          <h4 style="margin-bottom: 20px;">MY ORDERS</h4>
+          @if($order->isEmpty())
+          <p>Tidak ada Pesanan untuk saat ini</p>
+          @else
           <div class="row" style="margin-bottom: 30px;">
-            <h4 style="margin-bottom: 20px;">MY ORDERS</h4>
+              @foreach($order as $order)
               <div class="col-md-12" style="border: solid 1px #95a5a6; padding: 30px; border-radius: 10px;">
-                  <p style="font-size: 20px;"><b><img src="{{url('assets/img/icon/bus depan.png')}}"> Depok <img src="{{url('assets/img/icon/next.png')}}" alt=""> Yogyakarta</b></p>
+                  <p style="font-size: 20px;"><b style="margin-right: 10px;"><img src="{{url('assets/img/icon/bus depan.png')}}"> {{$order->alamat_jemput}} <img src="{{url('assets/img/icon/next.png')}}" alt=""> {{$order->alamat_tujuan}}</b>
+
+                    @if($order->status === 'Belum Diproses')
+                    <span class="badge btn-warning">{{$order->status}}</span></td>
+                    @elseif($order->status === 'Sedang Diproses')
+                    <span class="badge btn-primary">{{$order->status}}</span></td>
+                    @elseif($order->status === 'Selesai')
+                    <span class="badge btn-success">{{$order->status}}</span></td>
+                    @endif
+
+                  </p>
                   <hr style="width: auto; border-bottom: 1px solid #95a5a6;">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <p>PO Bus</p>
-                      <p>Hiba Utama</p>
-                    </div>
+                  <div class="row text-center">
                     <div class="col-md-3">
                       <p>Nama Bus</p>
-                      <p>MBHU-Hiba Utama</p>
+                      <p>{{$order->nama_bus}}</p>
                     </div>
                     <div class="col-md-3">
-                      <p>Rencana Keberangkatan</p>
-                      <p>Kamis, 18 Juli 2019</p>
-                      <p>12.30 WIB</p>
+                      <p>Tanggal Berangkat</p>
+                      <p>{{date('l, d F Y', strtotime($order->tanggal_pergi))}}</p>
                     </div>
-                    <div class="col-md-3" style="text-align: right;">
+                    <div class="col-md-3">
+                      <p>Tanggal Pulang</p>
+                      <p>{{date('l, d F Y', strtotime($order->tanggal_pulang))}}</p>
+                    </div>
+                    <div class="col-md-3">
                       <p>Order Id</p>
-                      <p><b>110318</b></p>
+                      <p><b>{{$order->id}}</b></p>
                     </div>
                   </div>
-                <p class="btn" role="button" style="padding: 10px; margin-top: 20px; font-family: Cambria; background-color: #25aae2; color: #ffffff;">Menunggu Konfirmasi</p>
               </div>
+              @endforeach
+              @endif
           </div>
-              <a href="" style="margin-top: 20px; color: #d35400"><img src="{{url('assets/img/icon/kembali.png')}}" alt=""> Kembali</a>
+              <a href="{{url('/dashboardUser')}}" style="margin-top: 20px; color: #d35400"><img src="{{url('assets/img/icon/kembali.png')}}" alt=""> Kembali</a>
         </div>
     </div>
     </div>

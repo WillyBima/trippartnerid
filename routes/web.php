@@ -21,9 +21,21 @@ Route::get('/boking/booking-sekarang/{nama_bus}', 'BokingController@bookingnow')
 Route::post('/boking/submit-order','BokingController@submitBoking');
 
 Auth::routes(['verify' => true]);
+
+Route::group(['middleware' => ['AuthUser']], function() {
+  Route::get('/dashboardUser', 'DashboardUser@dashuser');
+  Route::get('/dashboardUser/myOrder', 'DashboardUser@myOrder');
+  Route::get('/dashboardUser/historyOrder', 'DashboardUser@history');
+  Route::get('/dashboardUser/accountInfo', 'DashboardUser@accountInfo');
+  Route::get('/logout', 'RegisterController@logout');
+});
+
 Route::get('/daftar', 'RegisterController@daftar');
 Route::post('/daftar/daftarCustomer','RegisterController@doRegister');
 Route::get('/login', 'RegisterController@login');
+Route::post('/login/loginCustomer', 'RegisterController@loginpost');
+Route::post('/login/loginAdmin', 'RegisterController@loginadmin');
+Route::get('/logoutadmin', 'DashboardController@logout');
 
 Route::get('/tentang', 'AboutController@about');
 
@@ -32,13 +44,6 @@ Route::post('/kontak/submitKritik','AboutController@submitKritik');
 Route::delete('/menuComment/{id}', 'DashboardController@hapusComment');
 
 Route::get('/pdf/{id}', 'DashboardController@pdf');
-
-Route::get('/dashboardUser', 'DashboardUser@dashuser');
-Route::get('/dashboardUser/myOrder', 'DashboardUser@myOrder');
-Route::get('/dashboardUser/historyOrder', 'DashboardUser@history');
-Route::get('/dashboardUser/newsletter', 'DashboardUser@newsletter');
-Route::get('/dashboardUser/accountInfo', 'DashboardUser@accountInfo');
-Route::get('/dashboardUser/address', 'DashboardUser@address');
 
 // Dashboard AdminLTE
 Route::get('/dashboardAdmin', 'DashboardController@dashboard');
@@ -87,9 +92,10 @@ Route::get('/MenuBus/viewData/{id}', 'DashboardController@viewData');
 Route::get('/MenuOrder/viewOrder/{id}', 'DashboardController@viewOrder');
 Route::get('/MenuPO/viewPo/{id}', 'DashboardController@viewPo');
 Route::get('/menuComment/viewComment/{id}', 'DashboardController@viewComment');
-Route::get('/MenuUser/viewUser/{id}', 'DashboardController@viewUser');
 
-Route::delete('/MenuUser/{id}', 'DashboardController@hapusUser');
+Route::get('/MenuUser/viewUser/{id}', 'DashboardController@viewUser');
+Route::get('/MenuUser/createadmin', 'DashboardController@createadmin');
+Route::post('/MenuUser/tambahadmin','DashboardController@tambahadmin');
 
 Route::post('/MenuPo/tambahData','DashboardController@tambahpo');
 Route::get('/MenuPo/createData', 'DashboardController@createpo');

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Admin;
 
 use Auth;
 use Mail;
@@ -38,7 +40,7 @@ class RegisterController extends Controller
       $user->save();
       $this->sendEmail($data,$input);
 
-      return redirect('/');
+      return redirect('/login');
     }
 
     public function sendEmail($data, $input)
@@ -63,5 +65,43 @@ class RegisterController extends Controller
     public function login()
     {
       return view('frontend.register.login');
+    }
+
+    public function loginpost(Request $request){
+
+      $auth = Auth::guard('users')->attempt([
+        'email'   => $request->input('email'),
+        'password'=> $request->input('password')
+      ], true);
+
+      if($auth)
+      {
+        return redirect('/dashboardUser');
+      }
+      else{
+        return redirect()->back();
+      }
+    }
+
+    public function loginadmin(Request $request)
+    {
+      $auth = Auth::guard('admin')->attempt([
+        'user_name'   => $request->input('user_name'),
+        'password'    => $request->input('password')
+      ], true);
+
+      if($auth)
+      {
+        return redirect('/dashboardAdmin');
+      }
+      else{
+        return redirect()->back();
+      }
+    }
+
+    public function logout()
+    {
+      Auth::guard('users')->logout();
+      return redirect('/login');
     }
 }

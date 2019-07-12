@@ -181,6 +181,11 @@
           <i class="fa fa-comment"></i> <span>Kritik dan Saran</span>
         </a>
       </li>
+      <li>
+        <a href="{{url('logoutadmin')}}">
+          <i class="fa fa-sign-out-alt"></i> <span>Logout</span>
+        </a>
+      </li>
     </ul>
   </section>
   <!-- /.sidebar -->

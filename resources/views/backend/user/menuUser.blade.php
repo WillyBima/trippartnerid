@@ -39,7 +39,8 @@
     <div class="rounded" style="background: #fff; margin-top: 20px;">
       <section class="content">
         <div class="row">
-          <div class="col-md-12" style="margin-top: 30px">
+          <div class="col-md-12">
+            <a href="{{url('/MenuUser/createadmin')}}" class="btn" role="button" style="background-color: #f96d01; color: #ffffff; margin-bottom: 20px;"><span class="fa fa-plus color-white"><span> Tambah Data</a>
               <table id="MenuUser" class="table table-bordered text-center">
                 <thead>
                   <tr>
