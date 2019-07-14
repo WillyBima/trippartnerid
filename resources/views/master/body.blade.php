@@ -21,7 +21,7 @@
         font-family: Cambria; margin-left: 5px;">DAFTAR</a>
         @else
         <a href="{{url('/dashboardUser')}}" style="font-family: Cambria; font-size: 20px; color: #f96d01;
-        margin-left: 180px;"><img src="{{url('assets/img/icon/user.png')}}"
+        margin-left: 180px; text-transform: capitalize;"><img src="{{url('assets/img/icon/user.png')}}"
         width="30" height="30" class="" alt="" style="">
           {{Auth::guard('users')->user()->nama_lengkap}}</a>
         @endif

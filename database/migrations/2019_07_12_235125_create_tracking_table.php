@@ -14,11 +14,12 @@ class CreateTrackingTable extends Migration
     public function up()
     {
         Schema::create('tracking', function (Blueprint $table) {
-            $table->bigIncrements('id_tracking');
+            $table->bigIncrements('id');
             $table->string('id_bus');
             $table->string('id_supir');
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('status');
             $table->timestamps();
         });
     }

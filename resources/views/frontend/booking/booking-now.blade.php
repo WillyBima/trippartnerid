@@ -119,7 +119,17 @@
             <hr style="width: 1000px; border-bottom: 1px solid #25aae2;">
           </div>
         </div>
-
+        @if(!Auth::guard('users')->user())
+          <div class="row text-center">
+            <div class="col-md-12">
+              <p class="title-form">OOOPPsss..</p>
+              <p class="title-form">Login Terlebih Dahulu</p>
+              <a href="{{url('/login')}}" class="btn" role="button"
+              style="background-color: #f96d01; color: #ffffff;
+              font-family: Cambria; margin-left: 5px;">LOGIN</a>
+            </div>
+          </div>
+        @else
           <form role="form" action="{{url('/boking/submit-order')}}" method="post">
             {{ csrf_field() }}
             @foreach($databus as $data)
@@ -147,6 +157,8 @@
             </div>
             @endforeach
           </form>
+        @endif
+
       </div>
     </section>
 

@@ -19,6 +19,8 @@ class BokingController extends Controller
 
     public function bookingnow($slug)
     {
+      $rute = DB::table('rute')->select('*')->get();
+
       $databus = DB::table('bus')
                ->select('*')
                ->where('slug', '=', $slug)
@@ -36,7 +38,7 @@ class BokingController extends Controller
                         ->select('fasilitas.nama_fasilitas', 'fasilitas.icon')
                         ->get();
 
-      return view('frontend.booking.booking-now', ['databus'=>$databus, 'datafasilitas'=>$datafasilitas, 'datafasilitasbus'=>$datafasilitasbus]);
+      return view('frontend.booking.booking-now', ['rute'=>$rute,'databus'=>$databus, 'datafasilitas'=>$datafasilitas, 'datafasilitasbus'=>$datafasilitasbus]);
     }
 
     public function submitBoking(Request $request)

@@ -15,6 +15,8 @@ use App\FasilitasBus;
 use App\Kota;
 use App\Rute;
 use App\Harga;
+use App\Tracking;
+use App\Supir;
 
 class ApiController extends Controller
 {
@@ -74,6 +76,24 @@ class ApiController extends Controller
           ]);
         }
       //END DATA KOTA
+
+      //API Data supir
+      public function data_supir()
+      {
+        $datasupir = DB::table('supir')->select('*')->get();
+        if(is_null($datasupir)){
+          return response()->json([
+            'message'=>'Data Gagal Diambil',
+            'status'=>401,
+          ]);
+        }
+        return response()->json([
+          'message'=>'Data Berhasil Diambil',
+          'status'=>200,
+          'data'=>$datasupir,
+        ]);
+      }
+      //END DATA supir
 
       //API DATA COMMENT
       public function data_comment()
@@ -186,6 +206,26 @@ class ApiController extends Controller
         }
       //END DATA RUTE
 
+      //API GET Lokasi
+
+      public function data_tracking()
+      {
+        $datatracking = DB::table('tracking')->select('*')
+        ->where([['status', '=', 1]])
+        ->get();
+        if(is_null($datatracking)){
+          return response()->json([
+            'message'=>'Data Gagal Diambil',
+            'status'=>401,
+          ]);
+        }
+        return response()->json([
+          'message'=>'Data Berhasil Diambil',
+          'status'=>200,
+          'data'=>$datatracking,
+        ]);
+      }
+      //END Data Lokasi
       //API DATA PO BUS
       public function data_user()
       {
@@ -262,4 +302,50 @@ class ApiController extends Controller
           ]);
         }
         //END API COMMENT
+
+        //API POST TRACKING
+        public function add_tracking(Request $request)
+        {
+          $id_supir = $request->input('id_supir');
+          $id_bus = $request->input('id_bus');
+          $id_tracking = $request->input('id_tracking');
+
+          $data_tracking = DB::table('tracking')
+                      ->select('*')
+                      ->where([['id_supir', '=', $id_supir], ['id_bus', '=', $id_bus]])
+                      ->get();
+
+          if (count($data_tracking) > 0) {
+            $tracking = Tracking::find($id_tracking);
+
+            $tracking->id_bus         = $request->input('id_bus');
+            $tracking->latitude       = $request->input('latitude');
+            $tracking->longitude      = $request->input('longitude');
+            $tracking->status         = $request->input('status');
+
+            $tracking->save();
+            return response()->json([
+                'message'=>'Tracking Berhasil Dikirim',
+                'status'=>200,
+                'data'=>$tracking,
+            ]);
+          } else {
+            $tracking = new Tracking;
+            $tracking->id_bus         = $request->input('id_bus');
+            $tracking->id_supir       = $request->input('id_supir');
+            $tracking->latitude       = $request->input('latitude');
+            $tracking->longitude      = $request->input('longitude');
+            $tracking->status         = $request->input('status');
+
+            $tracking->save();
+            return response()->json([
+                'message'=>'Tracking Berhasil Dikirim',
+                'status'=>200,
+                'data'=>$tracking,
+            ]);
+          }
+
+
+
+        }
 }

@@ -13,6 +13,7 @@ class Tracking extends Model
     'id_bus',
     'id_supir',
     'latitude',
-    'longitude'
+    'longitude',
+    'status'
   ];
 }
