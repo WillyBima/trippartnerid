@@ -75,10 +75,6 @@
                   <input type="text" class="form-control" name="nama_bus" placeholder="Enter ...">
                 </div>
                 <div class="form-group">
-                  <label>Keterangan</label>
-                  <input type="text" class="form-control" name="keterangan" placeholder="Enter ...">
-                </div>
-                <div class="form-group">
                   <label for="exampleInputFile">File Gambar Bus</label>
                   <input type="file" name="gambar_bus" id="exampleInputFile">
                 </div>

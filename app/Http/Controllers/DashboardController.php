@@ -90,7 +90,7 @@ class DashboardController extends Controller
     public function menuharga()
     {
       $harga = DB::table('harga')
-               ->join('bus', 'bus.id_bus', '=', 'harga.nama_bus')
+               ->join('bus', 'bus.id', '=', 'harga.nama_bus')
                ->join('rute', 'rute.id', '=', 'harga.rute_bus')
                ->select('*')
                ->get();
@@ -119,7 +119,7 @@ class DashboardController extends Controller
     public function editharga($id)
     {
       $harga = DB::table('harga')
-               ->join('bus', 'bus.id_bus', '=', 'harga.nama_bus')
+               ->join('bus', 'bus.id', '=', 'harga.nama_bus')
                ->join('rute', 'rute.id', '=', 'harga.rute_bus')
                ->where('harga.id',$id)
                ->select('*')
@@ -220,7 +220,6 @@ class DashboardController extends Controller
         $bus->nama_bus = $request['nama_bus'];
         $bus->slug = strtolower($slug);
         $bus->gambar_bus = $nama_gambar;
-        $bus->keterangan = $request['keterangan'];
 
         $bus->save();
 
@@ -250,7 +249,7 @@ class DashboardController extends Controller
       $bus = DB::table('bus')
                ->join('po', 'po.id', '=', 'bus.nama_po')
                ->select('*')
-               ->where('bus.id_bus',$id)
+               ->where('bus.id',$id)
                ->get();
       return view('backend.bus.viewBus',['bus'=>$bus]);
     }
@@ -259,8 +258,8 @@ class DashboardController extends Controller
     {
       $bus = DB::table('bus')
                ->join('po', 'po.id', '=', 'bus.nama_po')
-               ->select('bus.id_bus as id','po.id as id_po', 'po.nama_po','bus.nama_bus', 'bus.jenis_bus', 'bus.gambar_bus', 'bus.keterangan')
-               ->where('bus.id_bus',$id)
+               ->select('bus.id as id','po.id as id_po', 'po.nama_po','bus.nama_bus', 'bus.jenis_bus', 'bus.gambar_bus')
+               ->where('bus.id',$id)
                ->get();
 
       $po = DB::table('po')->select('*')->get();
@@ -273,7 +272,7 @@ class DashboardController extends Controller
 
       $_gambar = $request->file('gambar_bus');
       if(is_null($_gambar)){
-        $nama_gambar = DB::table('bus')->select('gambar_bus')->where('bus.id_bus',$id)->first()->gambar_bus;
+        $nama_gambar = DB::table('bus')->select('gambar_bus')->where('bus.id',$id)->first()->gambar_bus;
       }else{
         $_gambar = $request->file('gambar_bus');
         $nama_gambar = $_gambar->getClientOriginalName();
@@ -286,7 +285,6 @@ class DashboardController extends Controller
       $bus->nama_bus = $request['nama_bus'];
       $bus->slug = Str::slug($request['nama_bus'],'-');
       $bus->gambar_bus = $nama_gambar;
-      $bus->keterangan = $request['keterangan'];
       $bus->save();
       return redirect('/MenuBus');
     }

@@ -14,7 +14,9 @@ class BokingController extends Controller
 {
     public function boking()
     {
-      return view('frontend.booking.booking-online');
+      $rute = DB::table('kota')->select('*')->get();
+
+      return view('frontend.booking.booking-online', ['rute'=>$rute]);
     }
 
     public function bookingnow($slug)
@@ -33,7 +35,7 @@ class BokingController extends Controller
 
       $datafasilitasbus = DB::table('fasilitas_bus')
                         ->join('fasilitas', 'fasilitas_bus.id_fasilitas', '=', 'fasilitas.id_fasilitas')
-                        ->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id_bus')
+                        ->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id')
                         ->where('bus.slug',$slug)
                         ->select('fasilitas.nama_fasilitas', 'fasilitas.icon')
                         ->get();
@@ -74,6 +76,6 @@ class BokingController extends Controller
       $order->status = 'Belum Diproses';
 
       $order->save();
-      return redirect('/');
+      return redirect('/dashboardUser/myOrder');
     }
 }

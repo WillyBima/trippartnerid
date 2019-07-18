@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-
     <!-- title -->
     <title>Booking Online</title>
     <!-- end title -->
@@ -27,73 +26,116 @@
             background-size: cover;
             height: auto;
             padding: 25px;">
-                <p class="title-header"><b>BOOKING ONLINE</b></p>
-                <p class="subtitle-header"> Beranda > Booking Online</p>
+                <p class="title-header"><b>BOOKING BUS</b></p>
+                <p class="subtitle-header"> Beranda > Booking Bus</p>
             </div>
         </section>
 
         <!-- booking now -->
         <section id="booking">
-            <div class="container-fluid" style="background-image: url({{url('assets/img/searching.png')}}); background-size: cover;padding: 20px;">
-                <div class="row" style="padding: 20px;">
-                  <div class="col-md-1"></div>
-                    <div class="col-md-5" style="margin-top: 30px;">
-                      <div class="form-group">
-                          <input id="nama" type="text" class="form-control" placeholder="Kota Asal">
-                      </div>
-                      <div class="row">
-                        <div class="col-md-5">
-
-                        </div>
-                        <div class="col-md-7">
-                          <div class="form-group">
-                              <input type="date" class="form-control" placeholder="Tanggal Berangkat">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-5" style="margin-top: 30px;">
-                      <div class="form-group">
-                          <input id="nama" type="text" class="form-control" placeholder="Kota Tujuan">
-                      </div>
-                      <div class="row">
-                        <div class="col-md-7">
-                          <div class="form-group">
-                              <input type="date" class="form-control" placeholder="Tanggal Berangkat">
-                          </div>
-                        </div>
-                        <div class="col-md-5">
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
-
+            <div class="container-fluid" style="background-image: url({{url('assets/img/searching.png')}}); background-size: cover;padding: 20px; font-family: Cambria; margin-bottom: 50px">
+              <form action="{{url('/cari-bus')}}" method="post">
+                {{csrf_field()}}
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-6">
 
-                  </div>
-                  <div class="col-md-4 text-center">
-                    <div class="form-group">
-                        <input id="nama" type="text" class="form-control" placeholder="Nama">
-                    </div>
-                    <div class="form-group">
-                        <input id="nama" type="text" class="form-control" placeholder="Nama">
-                    </div>
-                    <a href="#" class="btn btn-lg" role="button" style="font-family: Century Gothic; background-color: #f96d01; color: #ffffff; margin-top: 30px;"><span class="fa fa-search color-white"></span> Cari Sekarang</a>
-                  </div>
-                  <div class="col-md-4">
+                      </div>
+                      <div class="col-md-6">
 
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-4"></div>
+                      <div class="col-md-4 text-center">
+                        <div class="form-group">
+                          <label>Rute Perjalanan</label>
+                          <select class="form-control" name="kota_asal">
+                            @foreach($rute as $kota_asal)
+                              <option value="{{$kota_asal->nama_kota}}">{{$kota_asal->nama_kota}}</option>
+                            @endforeach
+                          </select><br>
+                          <select class="form-control" name="kota_tujuan">
+                            @foreach($rute as $kota_tujuan)
+                              <option value="{{$kota_tujuan->nama_kota}}">{{$kota_tujuan->nama_kota}}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <select name="jenis_bus" class="form-control">
+                            <option value="">Pilih Jenis Bus yang di inginkan</option>
+                            <option value="Small Bus">Small Bus</option>
+                            <option value="Medium Bus">Medium Bus</option>
+                            <option value="Big Bus">Big Bus</option>
+                          </select>
+                          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modaljenis" style="margin-top: 7px; margin-left: 380px;">
+                            <span class="fa fa-exclamation-circle color-white"></span>
+                          </button>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="harga" class="form-control" placeholder="Harga Bus yang di inginkan">
+                        </div>
+                        <div class="form-group">
+                          <select name="fasilitas" class="form-control">
+                            <option value="">Pilih Fasilitas</option>
+                            <option value="1">Fasilitas kelas 1</option>
+                            <option value="2">Fasilitas kelas 2</option>
+                            <option value="3">Fasilitas kelas 3</option>
+                          </select>
+                          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" style="margin-top: 7px; margin-left: 380px;">
+                            <span class="fa fa-exclamation-circle color-white"></span>
+                          </button>
+                        </div>
+                        <button class="btn btn-lg" role="button" style="font-family: Cambria; background-color: #f96d01; color: #ffffff; margin-top: 30px;"><span class="fa fa-search color-white"></span> Cari Sekarang</button>
+                      </div>
+                      <div class="col-md-4"></div>
+                    </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Fasilitas Bus</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Fasilitas Kelas 1 : memiliki 1-3 Fasilitas</p>
+                            <p>Fasilitas Kelas 2 : memiliki 4-6 Fasilitas</p>
+                            <p>Fasilitas Kelas 3 : memiliki 7-n Fasilitas</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="modaljenis" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Jenis Bus</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Small Bus   : memiliki 18-20 seat</p>
+                            <p>Medium Bus  : memiliki 30-34 seat</p>
+                            <p>Big Bus     : memiliki 49-55 seat</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              </form>
                 <div class="row" style="margin-top: 50px; margin-bottom: 30px;">
                   <div class="col-md-2">
 
                   </div>
                   <div class="col-md-8 text-center">
                     <div class="alert alert-warning">
-                      <a style="font-size: 15px; font-family: Century Gothic; color: #25aae2;">Harap pastikan perjalanan Anda terselesaikan pada periode yang dipilih</a>
+                      <a style="font-size: 15px; font-family: Cambria; color: #25aae2;">Harap pastikan perjalanan Anda terselesaikan pada periode yang dipilih</a>
                       <!-- <p class="" style="font-size: 10px; font-family: Century Gothic; color: #25aae2;">Harap pastikan perjalanan Anda terselesaikan pada periode yang dipilih </p> -->
                     </div>
                   </div>
@@ -102,111 +144,6 @@
                   </div>
                 </div>
             </div>
-        </section>
-
-        <section>
-          <div class="container-fluid" style="margin-bottom: 30px;">
-            <div class="row" style="margin-top: 20px;">
-              <div class="col-md-12 text-center">
-                <div class="alert alert-primary">
-                  <a style="font-size: 14px; font-family: Century Gothic; color: #25aae2;">Menampilkan bis yang melayani rute Depok City, West Java, Indonesia ke Bandung, Bandung City, West Java pada 12/01/2019 - 17/01/2019</a>
-                </div>
-              </div>
-            </div>
-            <div class="row text-center" style="margin-top: 20px;">
-              <div class="col-md-12">
-                <p class="title" style="font-family: Century Gothic; font-size: 28px; color: #25aae2">Hasil Pencarian Sistem</p>
-                <hr style="width: 1000px; border-bottom: 1px solid #25aae2;">
-              </div>
-            </div>
-
-            <div class="row" style="margin-left: 30px; margin-top: 20px;">
-              <div class="col-md-4">
-                <div class="card" style="width:360px">
-                  <img class="card-img-top" src="{{url('assets/img/bus1.jpg')}}" alt="Card image" style="width:100%">
-                  <p class="title text-center" style="font-family: Century Gothic; font-size: 25px; color: #25aae2; margin-top: 10px;">Bus Pariwisata 1</p>
-                  <div class="row" style="margin-left:0px;">
-                    <div class="col-md-12" style="padding-left: 5px;">
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-users" style="color: #f96d01; font-size: 18px;"></i> 47 Seat
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-asterisk" style="color: #f96d01; font-size: 18px;"></i> AC Executive Class
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-wifi" style="color: #f96d01; font-size: 18px;"></i> On Wifi
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-bed" style="color: #f96d01; font-size: 18px;"></i> Bantal dan Selimut
-                      </p>
-                    </div>
-                  </div>
-                  <div class="row text-center">
-                    <div class="col-md-12">
-                      <button type="button" class="btn btn-outline-info">Rp. 20.000.000</button><br>
-                      <a href="#" class="btn" role="button" style="margin-top: 15px; margin-bottom: 20px; font-family: Century Gothic; background-color: #f96d01; color: #ffffff;">Lihat Selengkapnya</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card" style="width:360px">
-                  <img class="card-img-top" src="{{url('assets/img/bus1.jpg')}}" alt="Card image" style="width:100%">
-                  <p class="title text-center" style="font-family: Century Gothic; font-size: 25px; color: #25aae2; margin-top: 10px;">Bus Pariwisata 2</p>
-                  <div class="row" style="margin-left:0px;">
-                    <div class="col-md-12" style="padding-left: 5px;">
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-users" style="color: #f96d01; font-size: 18px;"></i> 47 Seat
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-asterisk" style="color: #f96d01; font-size: 18px;"></i> AC Executive Class
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-wifi" style="color: #f96d01; font-size: 18px;"></i> On Wifi
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-bed" style="color: #f96d01; font-size: 18px;"></i> Bantal dan Selimut
-                      </p>
-                    </div>
-                  </div>
-                  <div class="row text-center">
-                    <div class="col-md-12">
-                      <button type="button" class="btn btn-outline-info">Rp. 20.000.000</button><br>
-                      <a href="#" class="btn" role="button" style="margin-top: 15px; margin-bottom: 20px; font-family: Century Gothic; background-color: #f96d01; color: #ffffff;">Lihat Selengkapnya</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card" style="width:360px">
-                  <img class="card-img-top" src="{{url('assets/img/bus1.jpg')}}" alt="Card image" style="width:100%">
-                  <p class="title text-center" style="font-family: Century Gothic; font-size: 25px; color: #25aae2; margin-top: 10px;">Bus Pariwisata 3</p>
-                  <div class="row" style="margin-left:0px;">
-                    <div class="col-md-12" style="padding-left: 5px;">
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-users" style="color: #f96d01; font-size: 18px;"></i> 47 Seat
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-asterisk" style="color: #f96d01; font-size: 18px;"></i> AC Executive Class
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-wifi" style="color: #f96d01; font-size: 18px;"></i> On Wifi
-                      </p>
-                      <p style="font-family: Century Gothic; font-size: 15px; color: #25aae2">
-                        <i class="fa fa-bed" style="color: #f96d01; font-size: 18px;"></i> Bantal dan Selimut
-                      </p>
-                    </div>
-                  </div>
-                  <div class="row text-center">
-                    <div class="col-md-12">
-                      <button type="button" class="btn btn-outline-info">Rp. 20.000.000</button><br>
-                      <a href="#" class="btn" role="button" style="margin-top: 15px; margin-bottom: 20px; font-family: Century Gothic; background-color: #f96d01; color: #ffffff;">Lihat Selengkapnya</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
 
     <!-- FOOTER -->

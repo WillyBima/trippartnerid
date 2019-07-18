@@ -95,8 +95,7 @@
                   @foreach($datafasilitasbus as $fasilitas)
                   <div class="col-md-3">
                     <p>
-                      <i class="{{$fasilitas->icon}}" style="color: #f96d01; font-size: 50px;"></i>
-                      <p style="font-family: Century Gothic; font-size: 18px; color: #25aae2">{{$fasilitas->nama_fasilitas}}</p>
+                      <p style="font-family: Cambria; font-size: 18px; color: #25aae2"><i class="{{$fasilitas->icon}}"></i>{{$fasilitas->nama_fasilitas}}</p>
                     </p>
                   </div>
                   @endforeach

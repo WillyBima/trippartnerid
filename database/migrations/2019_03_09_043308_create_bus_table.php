@@ -14,13 +14,12 @@ class CreateBusTable extends Migration
     public function up()
     {
         Schema::create('bus', function (Blueprint $table) {
-            $table->increments('id_bus');
+            $table->increments('id');
             $table->string('nama_po');
             $table->string('jenis_bus');
             $table->string('nama_bus');
             $table->string('slug');
             $table->string('gambar_bus');
-            $table->string('keterangan');
             $table->timestamps();
         });
     }

@@ -25,7 +25,7 @@ class ApiController extends Controller
     {
         $databus = DB::table('bus')
                  ->join('po', 'po.id', '=', 'bus.nama_po')
-                 ->select('po.id','po.nama_po','bus.jenis_bus','bus.nama_bus','bus.gambar_bus','bus.keterangan','bus.slug')
+                 ->select('po.id','po.nama_po','bus.jenis_bus','bus.nama_bus','bus.gambar_bus','bus.slug')
                  ->get();
         if(is_null($databus)){
           return response()->json([
@@ -118,6 +118,7 @@ class ApiController extends Controller
       {
           $datafasilitasbus = DB::table('fasilitas_bus')
                             ->join('fasilitas','fasilitas.id_fasilitas','=','fasilitas_bus.id_fasilitas')
+                            ->join('bus','bus.id','=','fasilitas_bus.id_bus')
                             ->select('*')
                             ->get();
           if(is_null($datafasilitasbus)){
@@ -137,7 +138,11 @@ class ApiController extends Controller
       //API DATA HARGA
       public function data_harga()
       {
-          $dataharga = DB::table('harga')->select('*')->get();
+          $dataharga = DB::table('harga')
+                     ->join('bus','bus.id','harga.nama_bus')
+                     ->join('rute','rute.id','harga.rute_bus')
+                     ->select('*')
+                     ->get();
           if(is_null($dataharga)){
             return response()->json([
               'message'=>'Data Gagal Diambil',

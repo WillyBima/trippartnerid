@@ -46,16 +46,16 @@
                   <a class="nav-link" href="{{url('/')}}"><span class="fa fa-home color-white"></span> BERANDA</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{url('/boking')}}"><span class="fa fa-bus color-white"></span> BOOKING BUS</a>
+                  <a class="nav-link" href="{{url('/boking')}}"><span class="fa fa-search color-white"></span> BOOKING BUS</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{url('/armada')}}"><span class="fa fa-bus-alt color-white"></span> ARMADA</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{url('/tentang')}}"><span class="fa fa-warehouse color-white"></span> TENTANG KAMI</a>
+                  <a class="nav-link" href="{{url('/tentang')}}"><span class="fa fa-address-card color-white"></span> TENTANG KAMI</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{url('/kontak')}}"><span class="fa fa-address-card color-white"></span> KONTAK KAMI</a>
+                  <a class="nav-link" href="{{url('/kontak')}}"><span class="fa fa-phone-volume color-white"></span> KONTAK KAMI</a>
               </li>
           </ul>
       </div>

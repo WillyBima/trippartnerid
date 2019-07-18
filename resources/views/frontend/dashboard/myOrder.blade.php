@@ -48,11 +48,14 @@
         <div class="container-fluid">
           <h4 style="margin-bottom: 20px;">MY ORDERS</h4>
           @if($order->isEmpty())
-          <p>Tidak ada Pesanan untuk saat ini</p>
+          <div class="contactInfo text-center" style="border: solid 1px #95a5a6;; padding: 70px; border-radius: 10px; margin-bottom: 30px;">
+            <p style="text-transform: capitalize;">ANDA TIDAK MEMILIKI PESANAN</p>
+            <p>PESAN SEKARANG !!!</p>
+          </div>
           @else
-          <div class="row" style="margin-bottom: 30px;">
+          <div class="row" style="margin-bottom: 10px;">
               @foreach($order as $order)
-              <div class="col-md-12" style="border: solid 1px #95a5a6; padding: 30px; border-radius: 10px;">
+              <div class="col-md-12" style="border: solid 1px #95a5a6; padding: 30px; border-radius: 10px; margin-bottom: 20px;">
                   <p style="font-size: 20px;"><b style="margin-right: 10px;"><img src="{{url('assets/img/icon/bus depan.png')}}"> {{$order->alamat_jemput}} <img src="{{url('assets/img/icon/next.png')}}" alt=""> {{$order->alamat_tujuan}}</b>
 
                     @if($order->status === 'Belum Diproses')

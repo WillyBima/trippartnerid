@@ -77,10 +77,6 @@
                   <input type="text" class="form-control" value="{{$b->nama_bus}}" name="nama_bus" placeholder="Enter ...">
                 </div>
                 <div class="form-group">
-                  <label>Keterangan</label>
-                  <input type="text" class="form-control" value="{{$b->keterangan}}" name="keterangan" placeholder="Enter ...">
-                </div>
-                <div class="form-group">
                   <label for="exampleInputFile">File Gambar Bus</label>
                   <input type="file" value="{{$b->gambar_bus}}" name="gambar_bus" id="exampleInputFile">
 

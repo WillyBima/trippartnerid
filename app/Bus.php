@@ -14,8 +14,7 @@ class Bus extends Model{
       'jenis_bus',
       'nama_bus',
       'slug',
-      'gambar_bus',
-      'keterangan'
+      'gambar_bus'
     ];
 
 }

@@ -48,7 +48,10 @@
         <div class="container-fluid">
           <h4 style="margin-bottom: 20px;">HISTORY ORDERS</h4>
           @if($order->isEmpty())
-          <p>Anda Tidak Memiliki History Order</p>
+          <div class="contactInfo text-center" style="border: solid 1px #95a5a6;; padding: 70px; border-radius: 10px; margin-bottom: 30px;">
+            <p style="text-transform: capitalize;">ANDA TIDAK MEMILIKI HISTORY PEMESANAN</p>
+            <p>PESAN SEKARANG !!!</p>
+          </div>
           @else
           <div class="row" style="margin-bottom: 30px;">
             @foreach($order as $order)

@@ -67,10 +67,6 @@
                   <p class="">{{$b->nama_bus}}</p>
                 </div>
                 <div class="form-group">
-                  <label>Keterangan</label>
-                  <p class="">{{$b->keterangan}}</p>
-                </div>
-                <div class="form-group">
                   <label for="exampleInputFile">File Gambar Bus</label><br>
                   <img class="" src="{{url('img/bus/'.$b->gambar_bus)}}" alt="" style="width: 350px; height: 350px;">
                 </div>

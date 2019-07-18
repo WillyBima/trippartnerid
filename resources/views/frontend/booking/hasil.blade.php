@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- title -->
+    <title>Booking Online</title>
+    <!-- end title -->
+    @include('master.head')
+    @yield('head-frontend')
+  </head>
+
+  <body style="height: 100%;">
+    <!-- logo atas -->
+    @include('master.body')
+    @yield('header-frontend')
+    <!-- end logo -->
+
+    <!-- Navbar -->
+    @yield('navbar-frontend')
+    <!-- End Navbar -->
+
+    <!-- Header Title -->
+        <section id="header">
+            <div class="container-fluid" style="background-image: url({{url('assets/img/header.jpg')}});
+            margin-bottom: 40px;
+            background-size: cover;
+            height: auto;
+            padding: 25px;">
+                <p class="title-header"><b>BOOKING ONLINE</b></p>
+                <p class="subtitle-header"> Beranda > Booking Online > Hasil Pencarian</p>
+            </div>
+        </section>
+
+        <!-- booking now -->
+        <section>
+          <div class="container-fluid" style="margin-bottom: 30px;">
+            <div class="row" style="margin-top: 20px;">
+              <div class="col-md-12 text-center">
+                <div class="alert alert-primary">
+                  <a style="font-size: 14px; font-family: Cambria; color: #25aae2;">Menampilkan bis yang melayani rute Depok City, West Java, Indonesia ke Bandung, Bandung City, West Java pada 12/01/2019 - 17/01/2019</a>
+                </div>
+              </div>
+            </div>
+            <div class="row text-center" style="margin-top: 20px;">
+              <div class="col-md-12">
+                <p class="title" style="font-family: Cambria; font-size: 28px; color: #25aae2">Hasil Pencarian Sistem Rekomendasi</p>
+                <hr style="width: 1000px; border-bottom: 1px solid #25aae2;">
+              </div>
+            </div>
+            @foreach($bus_akhir as $bus_akhir)
+            <div class="row" style="font-family: Cambria; padding-left: 60px; padding-right: 60px; margin-top: 20px;">
+              <div class="col-md-12" style="border: solid 1px #95a5a6;; padding: 30px; border-radius: 10px;">
+                <div class="row">
+                  <div class="col-md-3">
+                    <p><b>Nama Bus</b></p>
+                    <p>{{$bus_akhir->nama_bus}}</p>
+                  </div>
+                  <div class="col-md-3">
+                    <p><b>Rute Perjalanan</b></p>
+                    <p>{{$bus_akhir->kota_asal}} - {{$bus_akhir->kota_tujuan}}</p>
+                  </div>
+                  <div class="col-md-3">
+                    <p><b>Fasilitas Bus</b></p>
+                    <p>AC</p>
+                    <p>LED TV</p>
+                  </div>
+                  <div class="col-md-3" style="text-align: center;">
+                    <p style="font-size: 20px; margin-top: 10px;"><b>RP. {{$bus_akhir->harga}}</b>/hari</p>
+                    <a href="{{url('/boking/booking-sekarang/'.$bus_akhir->slug)}}" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </section>
+
+    <!-- FOOTER -->
+    @yield('footer-frontend')
+    <!-- end Footer -->
+
+    <!-- script -->
+    @yield('script-frontend')
+    <!-- endscript -->
+  </body>
+</html>

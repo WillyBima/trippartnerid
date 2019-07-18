@@ -114,7 +114,7 @@
               <div class="card-body">
                 <h4 class="card-title">Small Bus</h4>
                 <p class="card-description">Small Bus merupakan ukuran bus terkecil didalam pemesanan, Bus yang memiliki kapasitas 17-22 seat.</p>
-                <a href="/armada" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
+                <a href="{{url('/armada')}}" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@
               <div class="card-body">
                 <h4 class="card-title">Medium Bus</h4>
                 <p class="card-description">Medium Bus merupakan jenis bus menengah yang dimiliki, yang memiliki kapasitas 30-45 seat.</p>
-                <a href="/armada" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
+                <a href="{{url('/armada')}}" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@
               <div class="card-body">
                 <h4 class="card-title">Big Bus</h4>
                 <p class="card-description">Big bus merupakan bus dengan ukuran paling besar yang bisa dipesan, memiliki kapasitas 49-60 seat.</p>
-                <a href="/armada" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
+                <a href="{{url('/armada')}}" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
               </div>
             </div>
           </div>
