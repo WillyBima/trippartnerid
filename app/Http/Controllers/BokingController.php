@@ -20,10 +20,12 @@ class BokingController extends Controller
       return view('frontend.booking.booking-online', ['rute'=>$rute]);
     }
 
-    public function bookingnow($slug)
+    public function bookingnow($slug, $rutenya)
     {
-      $rute = DB::table('rute')->select('*')->get();
 
+      // dd($rutenya);
+      $rute = DB::table('rute')->select('*')->get();
+      // dd($slug);
       $databus = DB::table('bus')
                ->select('*')
                ->where('slug', '=', $slug)
@@ -45,8 +47,9 @@ class BokingController extends Controller
              ->join('bus','bus.id','harga.nama_bus')
              ->join('rute','rute.id','harga.rute_bus')
              ->select('*')
-             ->where('bus.slug',$slug)
+             ->where([['bus.slug',$slug], ['rute.id', $rutenya]])
              ->get();
+             // dd($harga);
 
       return view('frontend.booking.booking-now', ['rute'=>$rute,'databus'=>$databus, 'datafasilitas'=>$datafasilitas, 'datafasilitasbus'=>$datafasilitasbus, 'harga'=>$harga]);
     }
@@ -71,12 +74,18 @@ class BokingController extends Controller
       //
       // $this->validate($request,$rules,$message);
 
+      $pergi = date(strtotime($request['tanggal_pergi']));
+      $perginya = date_create_from_format('MM/dd/YYYY', $pergi);
+      $pulang = date(strtotime($request['tanggal_pulang']));
+      $pulangnya = date_create_from_format('MM/DD/YYYY', $request['tanggal_pulang']);
+      $jml_hari = ($pulang-$pergi)/86400+1;
+
       $order = new Order();
       $order->nama = $request['nama'];
       $order->email = $request['email'];
       $order->no_hp = $request['no_hp'];
       $order->nama_bus = $request['nama_bus'];
-      $order->harga = $request['harga'];
+      $order->harga = $request['harga']*$jml_hari;
       $order->alamat_jemput = $request['alamat_jemput'];
       $order->alamat_tujuan = $request['alamat_tujuan'];
       $order->tanggal_pergi = $request['tanggal_pergi'];

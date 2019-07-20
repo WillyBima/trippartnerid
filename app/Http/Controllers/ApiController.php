@@ -20,12 +20,15 @@ use App\Rute;
 use App\Harga;
 use App\Tracking;
 use App\Supir;
+use App\Http\Controllers\PerhitunganController;
 
 use Auth;
 
 class ApiController extends Controller
 {
     //API DATA BUS
+
+    public $successStatus = 200;
     public function data_bus()
     {
         $databus = DB::table('bus')
@@ -45,7 +48,28 @@ class ApiController extends Controller
         ]);
       }
       //END DATA BUS
+      public function get_profile(Request $request)
+      {
+        $email = $request->input('email');
+        $data_akun = DB::table('users') ->select('*')->where('email','=', $email)->get();
+        if (is_null($data_akun)) {
+          return response()->json([
+            'message'=>'Data Gagal Diambil',
+            'status'=>401,
+          ]);
+        }
+        return response()->json([
+          'message'=>'Data Berhasil Diambil',
+          'status'=>200,
+          'data'=>$data_akun,
+        ]);
+      }
 
+      //editprofile
+      public function edit_profile(Request $request)
+      {
+        $email = $request->input('email');
+      }
       //API DATA PO BUS
       public function data_po()
       {
@@ -64,6 +88,19 @@ class ApiController extends Controller
         }
         //END DATA BUS
 
+      public function logintester(Request $request){
+        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+             $user = Auth::user();
+             $success['token'] =  $user->createToken('MyApp')-> accessToken;
+             return response()->json(['success' => $success], $this-> successStatus);
+         }
+         else{
+             return response()->json(['error'=>'Unauthorised'], 401);
+         }
+
+      }
+
+      //End Login
       //API DATA KOTA
       public function data_kota()
       {
@@ -163,9 +200,10 @@ class ApiController extends Controller
       //END DATA HARGA
 
       //API DATA HISTORY ORDER
-      public function data_history_order()
+      public function data_history_order(Request $request)
       {
-          $datahistory = DB::table('history_order')->select('*')->get();
+        $email = $request->input('email');
+        $datahistory = DB::table('order') ->select('*')->where('email','=', $email)->get();
           if(is_null($datahistory)){
             return response()->json([
               'message'=>'Data Gagal Diambil',
@@ -326,6 +364,7 @@ class ApiController extends Controller
         }
         //END API COMMENT
 
+
         //API POST TRACKING
         public function add_tracking(Request $request)
         {
@@ -367,8 +406,57 @@ class ApiController extends Controller
                 'data'=>$tracking,
             ]);
           }
+        }
 
+        public function search_bus(Request $request)
+        {
 
+          $kota_asal = $request->input('kota_asal');
+          $kota_tujuan = $request->input('kota_tujuan');
+          $jenis_bus = $request->input('jenis_bus');
+          $harga = $request->input('harga');
+          $fasilitas = $request->input('fasilitas');
 
+          $perhitunganController = new PerhitunganController;
+
+          $hasil_akhir =  $perhitunganController->caribus($kota_asal, $kota_tujuan, $jenis_bus, $harga, $fasilitas);
+
+          $array_ids = array();
+          for ($i=0; $i < count($hasil_akhir); $i++) {
+            array_push($array_ids, [$hasil_akhir[$i]['id']]);
+          }
+
+          // dd($array_ids);
+
+          $placeholders = implode(',',array_fill(0, count($array_ids), '?'));
+          $bus_akhir = DB::table('harga')
+                     ->join('bus','bus.id','harga.nama_bus')
+                     ->join('rute','rute.id','harga.rute_bus')
+                     ->select('*')
+                     ->whereIn('bus.id',$array_ids)
+                     ->orderByRaw("field(bus.id,{$placeholders})", $array_ids)
+                     ->where([['kota_asal',$kota_asal], ['kota_tujuan',$kota_tujuan]])
+                     ->get();
+          // dd($bus_akhir);
+
+           $fasilitas_bus = array();
+           for ($i=0; $i < count($hasil_akhir); $i++) {
+             $fasilitas = DB::table('fasilitas_bus')
+                            ->join('fasilitas', 'fasilitas_bus.id_fasilitas', '=', 'fasilitas.id_fasilitas')
+                            ->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id')
+                            ->where('bus.id',[$hasil_akhir[$i]['id']])
+                            ->orderByRaw("field(bus.id,{$placeholders})", $array_ids)
+                            ->select('fasilitas.nama_fasilitas', 'fasilitas.icon')
+                            ->get();
+              array_push($fasilitas_bus, $fasilitas);
+           }
+
+          return response()->json([
+              'message'=>'Pencarian Berhasil',
+              'status'=>200,
+              'data'=>[
+                'bus'=>$bus_akhir,
+                'fasilitas'=>$fasilitas_bus,
+          ]]);
         }
 }
