@@ -35,9 +35,10 @@
     <!-- Content -->
     <section>
       <div class="container-fluid">
+        @foreach($databus as $db)
         <div class="row text-center">
           <div class="col-md-12">
-            <p class="title-detail">Detail Armada</p>
+            <p class="title-detail">Detail {{$db->nama_bus}}</p>
             <hr style="width: 1250px; border-bottom: 1px solid #25aae2;">
           </div>
         </div>
@@ -54,7 +55,7 @@
                 <li data-target="#demo" data-slide-to="5"></li>
               </ul>
               <div class="carousel-inner">
-                @foreach($databus as $db)
+
                 <div class="carousel-item active text-center">
                   <img src="{{url('img/bus/'.$db->gambar_bus)}}" alt="Los Angeles" style="width: 580px;" height="auto">
                 </div>
@@ -87,7 +88,7 @@
               </div>
             </div>
 
-            <div class="row" style="margin-top: 20px;">
+            <div class="row" style="">
 
               <div class="col-md-12">
 
@@ -102,6 +103,17 @@
                 </div>
               </div>
 
+            </div>
+            <div class="row" style="font-family: Cambria; font-size: 18px; color: #25aae2">
+              <div class="col-md-6">
+                <p>Harga Sewa Bus</p>
+                @foreach($harga as $harga)
+                <p>{{$harga->kota_asal}} - {{$harga->kota_tujuan}} : {{$harga->harga}}</p>
+                @endforeach
+              </div>
+              <div class="col-md-6">
+
+              </div>
             </div>
           </div>
         </div>

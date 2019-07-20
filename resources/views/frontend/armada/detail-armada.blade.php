@@ -35,7 +35,7 @@
     <section>
       <div class="container-fluid">
         @foreach($datapo as $dpo)
-          <p class="title-po text-center" style="text-transform: uppercase;"><b>PO {{$dpo->nama_po}}</b></p>
+          <p class="title-po text-center" style="text-transform: uppercase;"><b>{{$dpo->nama_po}}</b></p>
             <div class="row">
               <div class="col-md-12">
                 <p class="title-armada text-center" style="margin-left: 0px;"><b>Big Bus {{$dpo->nama_po}}</b></p>

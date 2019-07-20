@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['headerapi']], function(){
 
+Route::post('/login','ApiController@login');
 Route::post('/post/tracking','ApiController@add_tracking');
 Route::post('/post/pemesanan','ApiController@add_data_pemesanan');
 Route::post('/post/comment','ApiController@add_data_comment');

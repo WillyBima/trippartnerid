@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+use Validator;
 
 use App\Bus;
 use App\User;
@@ -17,6 +20,8 @@ use App\Rute;
 use App\Harga;
 use App\Tracking;
 use App\Supir;
+
+use Auth;
 
 class ApiController extends Controller
 {
@@ -248,6 +253,19 @@ class ApiController extends Controller
           ]);
         }
         //END DATA BUS
+
+        //Login
+        public function login()
+        {
+          if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+              $user = Auth::user();
+              $success['token'] =  $user->createToken('trippartner')->accessToken;
+              return response()->json(['success' => $success, 'error' => "false", 'user'=>$user], $this->successStatus);
+          }
+          else{
+              return response()->json(['error'=>'true', 'error_msg'=>'Wrong Credentials'], 401);
+          }
+        }
 
         //API REGISTER
         public function register(Request $request)

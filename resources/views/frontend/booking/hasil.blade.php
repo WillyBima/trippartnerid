@@ -62,8 +62,9 @@
                   </div>
                   <div class="col-md-3">
                     <p><b>Fasilitas Bus</b></p>
-                    <p>AC</p>
-                    <p>LED TV</p>
+                    @foreach($fasilitas_bus as $fasilitas)
+                      <p style="font-family: Cambria;">{{$fasilitas->nama_fasilitas}}</p>
+                    @endforeach
                   </div>
                   <div class="col-md-3" style="text-align: center;">
                     <p style="font-size: 20px; margin-top: 10px;"><b>RP. {{$bus_akhir->harga}}</b>/hari</p>

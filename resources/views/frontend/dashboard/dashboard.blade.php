@@ -23,25 +23,25 @@
     <div id="container">
     <div id="sidebar" class="rounded">
         <ul class="sidebar-nav" style="padding-left: 15px; font-family: Cambria;">
-            <li style="margin-top: 15px;">
-                <a href="{{url('/dashboardUser')}}">My Dashboard</a>
-            </li>
-            <hr>
-            <li>
-                <a href="{{url('/dashboardUser/myOrder')}}">My Orders</a>
-            </li>
-            <hr>
-            <li>
-                <a href="{{url('/dashboardUser/historyOrder')}}">History Orders</a>
-            </li>
-            <hr>
-            <li>
-                <a href="{{url('/dashboardUser/accountInfo')}}">Account Information</a>
-            </li>
-            <hr>
-            <li>
-                <a href="{{url('/logout')}}">Logout</a>
-            </li>
+          <li style="margin-top: 15px;">
+              <a href="{{url('/dashboardUser')}}">Dashboard Saya</a>
+          </li>
+          <hr>
+          <li>
+              <a href="{{url('/dashboardUser/myOrder')}}">Order Saya</a>
+          </li>
+          <hr>
+          <li>
+              <a href="{{url('/dashboardUser/historyOrder')}}">Riwayat Order</a>
+          </li>
+          <hr>
+          <li>
+              <a href="{{url('/dashboardUser/accountInfo')}}">Informasi Akun</a>
+          </li>
+          <hr>
+          <li>
+              <a href="{{url('/logout')}}">Logout</a>
+          </li>
         </ul>
     </div>
     <div id="page-content-container" style="padding-left: 130px;padding-top: 0px;padding-right: 85px; font-family: Cambria;">

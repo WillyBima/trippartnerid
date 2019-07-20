@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 use App\Bus;
 use App\Fasilitas;
@@ -123,7 +124,10 @@ class PerhitunganController extends Controller
       }
       // dd($hasil_final_preferensi);
       $hasil_akhir = max($hasil_final_preferensi);
-
+      // $hasil_akhir = array_values(Arr::sort($hasil_final_preferensi, function ($value) {
+      //       return $value['hasil'];
+      //   }));
+      // dd($hasil_akhir);
       $bus_akhir = DB::table('harga')
                  ->join('bus','bus.id','harga.nama_bus')
                  ->join('rute','rute.id','harga.rute_bus')
@@ -131,6 +135,13 @@ class PerhitunganController extends Controller
                  ->where([['bus.id',$hasil_akhir['id']],['kota_asal',$kota_asal],['kota_tujuan',$kota_tujuan]])
                  ->get();
       // dd($bus_akhir);
-      return view('frontend.booking.hasil', ['bus_akhir'=>$bus_akhir, 'rute'=>$rute]);
+       $fasilitas_bus = DB::table('fasilitas_bus')
+                      ->join('fasilitas', 'fasilitas_bus.id_fasilitas', '=', 'fasilitas.id_fasilitas')
+                      ->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id')
+                      ->where([['bus.id',$hasil_akhir['id']]])
+                      ->select('fasilitas.nama_fasilitas', 'fasilitas.icon')
+                      ->get();
+
+      return view('frontend.booking.hasil', ['bus_akhir'=>$bus_akhir, 'rute'=>$rute, 'fasilitas_bus'=>$fasilitas_bus]);
   }
 }

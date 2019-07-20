@@ -9,6 +9,7 @@ use App\Order;
 use App\Bus;
 use App\Fasilitas;
 use App\FasilitasBus;
+use App\Harga;
 
 class BokingController extends Controller
 {
@@ -40,7 +41,14 @@ class BokingController extends Controller
                         ->select('fasilitas.nama_fasilitas', 'fasilitas.icon')
                         ->get();
 
-      return view('frontend.booking.booking-now', ['rute'=>$rute,'databus'=>$databus, 'datafasilitas'=>$datafasilitas, 'datafasilitasbus'=>$datafasilitasbus]);
+      $harga = DB::table('harga')
+             ->join('bus','bus.id','harga.nama_bus')
+             ->join('rute','rute.id','harga.rute_bus')
+             ->select('*')
+             ->where('bus.slug',$slug)
+             ->get();
+
+      return view('frontend.booking.booking-now', ['rute'=>$rute,'databus'=>$databus, 'datafasilitas'=>$datafasilitas, 'datafasilitasbus'=>$datafasilitasbus, 'harga'=>$harga]);
     }
 
     public function submitBoking(Request $request)
