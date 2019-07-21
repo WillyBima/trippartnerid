@@ -29,7 +29,7 @@ Route::get('/get/data-bus', 'ApiController@data_bus');
 Route::get('/get/data-kota', 'ApiController@data_kota');
 Route::get('/get/data-po', 'ApiController@data_po');
 Route::get('/get/data-rute', 'ApiController@data_rute');
-Route::post('/get/data-history-order', 'ApiController@data_history_order');
+Route::post('/post/data-history-order', 'ApiController@data_history_order');
 Route::get('/get/data-order', 'ApiController@data_order');
 Route::get('/get/data-fasilitas-bus', 'ApiController@data_fasilitas_bus');
 Route::get('/get/data-harga', 'ApiController@data_harga');
@@ -39,6 +39,7 @@ Route::get('/get/data-user', 'ApiController@data_user');
 Route::post('/post/get_profile', 'ApiController@get_profile');
 Route::post('/post/search_bus', 'ApiController@search_bus');
 Route::post('/post/logintester', 'ApiController@logintester');
+Route::post('/post/editprofil', 'ApiController@edit_profile');
 
 
 });

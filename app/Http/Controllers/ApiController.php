@@ -69,6 +69,32 @@ class ApiController extends Controller
       public function edit_profile(Request $request)
       {
         $email = $request->input('email');
+        $nama = $request->input('nama_lengkap');
+        $id = $request->input('id');
+
+        $data_profil = DB::table('users')
+                    ->select('*')
+                    ->where('email', '=', $email)
+                    ->get();
+
+        if (count($data_profil) > 0) {
+          $edit_profile = User::find($id);
+
+          $edit_profile->email      = $request->input('email');
+          $edit_profile->nama_lengkap       = $request->input('nama_lengkap');
+
+          $edit_profile->save();
+          return response()->json([
+              'message'=>'Edit Profil Berhasil',
+              'status'=>200,
+              'data'=>$edit_profile,
+          ]);
+        } else {
+          return response()->json([
+              'message'=>'Gagal Dikirim',
+              'status'=>400,
+          ]);
+        }
       }
       //API DATA PO BUS
       public function data_po()
@@ -203,7 +229,8 @@ class ApiController extends Controller
       public function data_history_order(Request $request)
       {
         $email = $request->input('email');
-        $datahistory = DB::table('order') ->select('*')->where('email','=', $email)->get();
+        $status =$request->input('status');
+        $datahistory = DB::table('order') ->select('*')->where([['email','=', $email], ['status', '=', $status]])->get();
           if(is_null($datahistory)){
             return response()->json([
               'message'=>'Data Gagal Diambil',

@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
-        <img src="{{url('assets/img/icon/logobaru.png')}}" class="img-fluid" style="width: 180px; height: 59px; margin-top: 17px; margin-left: 100px;">
+        <a href="{{url('/')}}"><img src="{{url('assets/img/icon/logobaru.png')}}" class="img-fluid" style="width: 180px; height: 59px; margin-top: 17px; margin-left: 100px;"></a>
       </div>
 
       <div class="col-md-4 text-center">
@@ -70,9 +70,11 @@
         <div class="row">
             <div class="col-md-3 text-center" style="margin-top: 12px;">
                 <p class="judul" style="font-family: Cambria; font-size: 20px; color: #fff">Profil Perusahaan</p>
-                <p class="deskripsi" style="font-family: Cambria; font-size: 14px; color: #fff">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor
-                  aliquet. Aenean sollicitudin, lorem quis bibendum auctor,nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-                  Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus </p>
+                <p class="deskripsi" style="font-family: Cambria; font-size: 14px; color: #fff">PT. Vallung Pramana Rancang adalah perusahaan biro perjalanan wisata yang didirikan pada tanggal
+                   6 Oktober 2015 oleh bapak Iswandi Hanindyo Kusuma sebagai direktur dan ibu Iswanti Nayana sebagai komisaris.
+                   Tujuan didirikannya perusahaan ini adalah untuk membantu masyarakat luas dalam memenuhi kebutuhan wisata yang
+                   setiap waktu permintaannya semakin banyak. Pada awal pembentukan, hanya ada 3 karyawan saja yang bekerja di
+                   PT. Vallung Pramana Rancang. </p>
             </div>
 
             <div class="col-md-3 text-center" style="margin-top: 12px;">

@@ -38,13 +38,24 @@
             <div class="row">
               <div class="deskripsi-triplan" style="padding: 20px;">
                 <p class="title-about"><b>TripPartner.com</b></p>
-                <p class="desc-about">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibend
-                  um auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet
-                  mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat
-                  consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                  Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet
-                  nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut
-                  aliquam massa nisl quis neque. Suspendisse in orci enim.</p><br>
+                <p class="desc-about">PT. Vallung Pramana Rancang adalah perusahaan biro perjalanan wisata yang didirikan pada tanggal
+                   6 Oktober 2015 oleh bapak Iswandi Hanindyo Kusuma sebagai direktur dan ibu Iswanti Nayana sebagai komisaris.
+                   Tujuan didirikannya perusahaan ini adalah untuk membantu masyarakat luas dalam memenuhi kebutuhan wisata yang
+                   setiap waktu permintaannya semakin banyak. Pada awal pembentukan, hanya ada 3 karyawan saja yang bekerja di
+                   PT. Vallung Pramana Rancang.</p>
+                   <p class="desc-about">Pada awal berdirinya, PT. Vallung Pramana Rancang memiliki banyak partner dalam menunjang
+                     kegiatan umum perusahaan, seperti bekerjasama dengan travel agent, maskapai penerbangan dan hotel – hotel yang
+                     tersebar dibeberapa daerah Indonesia. Namun dikarenakan manajemen perusahaan yang kurang baik, di tahun berikutnya
+                     PT. Vallung Pramana Rancang tidak mampu lagi dalam melanjutkan kerjasama dengan berbagai pihak, yang mengakibatkan
+                     pemutusan kontrak kerjasama. Seiring berjalannya waktu, dan dengan manajemen yang kurang baik dari pemilik sehingga
+                     membuat PT. Vallung Pramana Rancang mengalami kemunduran dalam mencapai tujuan perusahaannya.</p>
+                     <p class="desc-about">Pada bulan Februari 2017, PT. Vallung Pramana Rancang merekrut 2 orang karyawan baru untuk
+                       membantu dalam mendorong perusahaan dalam mencapai tujuannya secara maksimal. Dan pada tahun 2017, pemilik
+                       PT. Vallung Pramana Rancang sudah tidak sanggup lagi dalam menjalankan tugasnya sebagai direktur dan komisaris,
+                       yang pada akhirnya tugas tersebut dipercayakan kepada kedua karyawan baru tersebut karena dianggap mampu membuat
+                       PT. Vallung Pramana Rancang menjadi maju seperti saat pertama didirikan. Terbukti hingga sekarang PT. Vallung Pramana Rancang
+                       sudah mulai dikenal dikalangan masyarakat sebagai perusahaan biro perjalanan wisata, tempat reservasi bus pariwisata,
+                       dan menjual berbagai paket wisata ke berbagai tempat di pulau Jawa, Bali, dan Lombok.</p>
                   <hr style="width: auto; border-bottom: 1px solid #25aae2;">
               </div>
               </div>
@@ -92,28 +103,28 @@
           <div class="col-md-3">
             <div class="image text-center">
                 <img src="{{url('assets/img/icon/cal.png')}}" class="img-fluid"><br><br>
-                <p class="title-fact text-center" style="margin-bottom: 0px;">5+</p>
+                <p class="title-fact text-center" style="margin-bottom: 0px;">4+</p>
                 <p class="subtitle-fact text-center">Tahun Pengalaman</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="image text-center">
                 <img src="{{url('assets/img/icon/icon.png')}}" class="img-fluid"><br><br>
-                <p class="title-fact text-center" style="margin-bottom: 0px">100+</p>
+                <p class="title-fact text-center" style="margin-bottom: 0px">50+</p>
                 <p class="subtitle-fact text-center">Armada Transportasi</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="image text-center">
                 <img src="{{url('assets/img/icon/passenger.png')}}" class="img-fluid"><br><br>
-                <p class="title-fact text-center" style="margin-bottom: 0px;">2000+</p>
+                <p class="title-fact text-center" style="margin-bottom: 0px;">200+</p>
                 <p class="subtitle-fact text-center">Jumlah Penumpang</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="image text-center">
                 <img src="{{url('assets/img/icon/clipboard-with-pencil-.png')}}" class="img-fluid"><br><br>
-                <p class="title-fact text-center" style="margin-bottom: 0px">240+</p>
+                <p class="title-fact text-center" style="margin-bottom: 0px">100+</p>
                 <p class="subtitle-fact text-center">Jumlah Order</p>
             </div>
           </div>

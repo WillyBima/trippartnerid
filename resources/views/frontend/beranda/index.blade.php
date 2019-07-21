@@ -30,33 +30,31 @@
           </ul>
           <div class="carousel-inner">
             <div class="carousel-item active text-center">
-              <img src="{{url('assets/img/corousel.jpg')}}" alt="Los Angeles" width="auto" height="auto" class="img-fluid">
+              <img src="{{url('assets/img/corousel12.jpg')}}" alt="Los Angeles" width="auto" height="auto" class="img-fluid">
               <div class="carousel-caption" style="margin-bottom: 70px;">
-                <p class="text-right" style="font-family: Cambria; font-size: 30px; color: #fff">TRIPLAN</p>
+                <p class="text-right" style="font-family: Cambria; font-size: 30px; color: #fff">TRIPPARTNER.COM</p>
                 <p class="text-right" style="font-family: Cambria; font-size: 20px; color: #fff">Perusahaan Penyedia
                 Jasa Sewa Bus Terbaik<br> dan Terpercaya</p>
                 <br>
-                <a href="#" class="btn" role="button" style="font-family: Cambria; margin-top: 30px; background-color: #f96d01; color: #ffffff; margin-left: 900px;">TENTANG KAMI</a>
+                <a href="{{url('/tentang')}}" class="btn" role="button" style="font-family: Cambria; margin-top: 30px; background-color: #f96d01; color: #ffffff; margin-left: 800px;">TENTANG KAMI</a>
               </div>
             </div>
             <div class="carousel-item text-center">
-              <img src="{{url('assets/img/corousel.jpg')}}" alt="Chicago" width="auto" height="auto">
+              <img src="{{url('assets/img/corousel2.jpg')}}" alt="Chicago" width="auto" height="auto">
               <div class="carousel-caption" style="margin-bottom: 70px;">
-                <p class="text-right" style="font-family: Cambria; font-size: 30px; color: #fff">TRIPLAN</p>
-                <p class="text-right" style="font-family: Cambria; font-size: 20px; color: #fff">Perusahaan Penyedia
-                Jasa Sewa Bus Terbaik<br> dan Terpercaya</p>
+                <p class="text-right" style="font-family: Cambria; font-size: 30px; color: #fff">TRIPPARTNER.COM</p>
+                <p class="text-right" style="font-family: Cambria; font-size: 20px; color: #fff">Perusahaan Kami Memiliki Armada Terbaik<br> dan Terpercaya</p>
                 <br>
-                <a href="#" class="btn" role="button" style="font-family: Cambria; margin-top: 30px; background-color: #f96d01; color: #ffffff; margin-left: 900px;">TENTANG KAMI</a>
+                <a href="{{url('/armada')}}" class="btn" role="button" style="font-family: Cambria; margin-top: 30px; background-color: #f96d01; color: #ffffff; margin-left: 800px;">ARMADA KAMI</a>
               </div>
             </div>
             <div class="carousel-item text-center">
-              <img src="{{url('assets/img/corousel.jpg')}}" alt="New York" width="auto" height="auto">
+              <img src="{{url('assets/img/corousel3.jpg')}}" alt="New York" width="auto" height="auto">
               <div class="carousel-caption" style="margin-bottom: 70px;">
-                <p class="text-right" style="font-family: Cambria; font-size: 30px; color: #fff">TRIPLAN</p>
-                <p class="text-right" style="font-family: Cambria; font-size: 20px; color: #fff">Perusahaan Penyedia
-                Jasa Sewa Bus Terbaik<br> dan Terpercaya</p>
+                <p class="text-right" style="font-family: Cambria; font-size: 30px; color: #fff">TRIPPARTNER.COM</p>
+                <p class="text-right" style="font-family: Cambria; font-size: 20px; color: #fff">Gunakan Sistem Rekomendasi untuk Memilih<br> Bus Terbaik</p>
                 <br>
-                <a href="#" class="btn" role="button" style="font-family: Cambria; margin-top: 30px; background-color: #f96d01; color: #ffffff; margin-left: 900px;">TENTANG KAMI</a>
+                <a href="{{url('/boking')}}" class="btn" role="button" style="font-family: Cambria; margin-top: 30px; background-color: #f96d01; color: #ffffff; margin-left: 800px;">BOOKING BUS</a>
               </div>
             </div>
           </div>
@@ -153,7 +151,7 @@
                 terbaik untuk kebutuhan transportasi anda</p>
             </div>
             <div class="col-md-6">
-              <a href="/boking" class="btn" role="button" style="width: 384px; height: 68px; margin-top: 40px; margin-left: 150px; font-family: Cambria; background-color: #f96d01; color: #ffffff; padding-top: 20px;">BOOKING ONLINE SEKARANG</a>
+              <a href="{{url('/boking')}}" class="btn" role="button" style="width: 384px; height: 68px; margin-top: 40px; margin-left: 150px; font-family: Cambria; background-color: #f96d01; color: #ffffff; padding-top: 20px;">BOOKING ONLINE SEKARANG</a>
             </div>
           </div>
         </div>
