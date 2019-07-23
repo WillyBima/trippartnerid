@@ -56,43 +56,80 @@ class BokingController extends Controller
 
     public function submitBoking(Request $request)
     {
-      // $rules = [
-      //   'nama'           => 'required',
-      //   'email'          => 'required',
-      //   'no_hp'          => 'required',
-      //   'nama_bus'       => 'required',
-      //   'harga'          => 'required',
-      //   'alamat_jemput'  => 'required',
-      //   'alamat_tujuan'  => 'required',
-      //   'tanggal_pergi'  => 'required',
-      //   'tanggal_pulang' => 'required',
-      // ];
-      //
-      // $message = [
-      //   'required' => 'Data tidak boleh dikosongkan',
-      // ];
-      //
-      // $this->validate($request,$rules,$message);
+      $rules = [
+        'nama'           => 'required',
+        'email'          => 'required',
+        'no_hp'          => 'required',
+        'nama_bus'       => 'required',
+        'harga'          => 'required',
+        'alamat_jemput'  => 'required',
+        'alamat_tujuan'  => 'required',
+        'tanggal_pergi'  => 'required',
+        'tanggal_pulang' => 'required',
+      ];
 
-      $pergi = date(strtotime($request['tanggal_pergi']));
-      $perginya = date_create_from_format('MM/dd/YYYY', $pergi);
-      $pulang = date(strtotime($request['tanggal_pulang']));
-      $pulangnya = date_create_from_format('MM/DD/YYYY', $request['tanggal_pulang']);
-      $jml_hari = ($pulang-$pergi)/86400+1;
+      $message = [
+        'required' => 'Data tidak boleh dikosongkan',
+      ];
+
+      $this->validate($request,$rules,$message);
+
+      // $pergi = date(strtotime($request['tanggal_pergi']));
+      // $perginya = date_create_from_format('MM/dd/YYYY', $pergi);
+      // $pulang = date(strtotime($request['tanggal_pulang']));
+      // $pulangnya = date_create_from_format('MM/DD/YYYY', $request['tanggal_pulang']);
+      // $jml_hari = ($pulang-$pergi)/86400+1;
 
       $order = new Order();
       $order->nama = $request['nama'];
       $order->email = $request['email'];
       $order->no_hp = $request['no_hp'];
       $order->nama_bus = $request['nama_bus'];
-      $order->harga = $request['harga']*$jml_hari;
+      $order->harga = $request['harga'];
       $order->alamat_jemput = $request['alamat_jemput'];
       $order->alamat_tujuan = $request['alamat_tujuan'];
       $order->tanggal_pergi = $request['tanggal_pergi'];
       $order->tanggal_pulang = $request['tanggal_pulang'];
       $order->status = 'Belum Diproses';
 
+      // $dataorder = [
+      //   'nama'            => $request['nama'],
+      //   'email'           => $request['email'],
+      //   'no_hp'           => $request['no_hp'],
+      //   'nama_bus'        => $request['nama_bus'],
+      //   'harga'           => $request['harga']*$jml_hari,
+      //   'alamat_jemput'   => $request['alamat_jemput'],
+      //   'alamat_tujuan'   => $request['alamat_tujuan'],
+      //   'tanggal_pergi'   => $request['tanggal_pergi'],
+      //   'tanggal_pulang'  => $request['tanggal_pulang'],
+      // ];
+      // dd($dataorder);
+
       $order->save();
+      // $this->checkout($dataorder);
       return redirect('/dashboardUser/myOrder');
+    }
+
+    public function checkout(Request $request)
+    {
+      $pergi = date(strtotime($request['tanggal_pergi']));
+      $perginya = date_create_from_format('MM/dd/YYYY', $pergi);
+      $pulang = date(strtotime($request['tanggal_pulang']));
+      $pulangnya = date_create_from_format('MM/DD/YYYY', $request['tanggal_pulang']);
+      $jml_hari = ($pulang-$pergi)/86400+1;
+
+      $dataorder = [
+        'nama'            => $request['nama'],
+        'email'           => $request['email'],
+        'no_hp'           => $request['no_hp'],
+        'nama_bus'        => $request['nama_bus'],
+        'harga'           => $request['harga']*$jml_hari,
+        'alamat_jemput'   => $request['alamat_jemput'],
+        'alamat_tujuan'   => $request['alamat_tujuan'],
+        'tanggal_pergi'   => $request['tanggal_pergi'],
+        'tanggal_pulang'  => $request['tanggal_pulang'],
+      ];
+      // dd($dataorder);
+      return view('frontend.booking.checkout',['dataorder'=> $dataorder]);
     }
 }

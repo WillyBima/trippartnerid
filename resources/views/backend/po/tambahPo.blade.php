@@ -54,11 +54,11 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Nama PO Bus</label>
-                  <input type="text" class="form-control" name="nama_po" placeholder="Enter ...">
+                  <input type="text" class="form-control" name="nama_po" placeholder="Enter ..." required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File Gambar PO</label>
-                  <input type="file" name="gambar_po" id="exampleInputFile">
+                  <input type="file" name="gambar_po" id="exampleInputFile" required>
                   <p class="help-block">Example block-level help text here.</p>
                 </div>
               </div>

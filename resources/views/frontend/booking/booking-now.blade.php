@@ -108,7 +108,7 @@
               <div class="col-md-6">
                 <p>Harga Sewa Bus</p>
                 <!-- @foreach($harga as $harga) -->
-                <p>{{$harga->kota_asal}} - {{$harga->kota_tujuan}} : Rp.{{$harga->harga}}/hari</p>
+                <p>{{$harga->kota_asal}} - {{$harga->kota_tujuan}} : Rp.{{number_format($harga->harga, 2)}}/hari</p>
                 <!-- @endforeach -->
               </div>
               <div class="col-md-6">
@@ -141,26 +141,46 @@
             </div>
           </div>
         @else
-          <form role="form" action="{{url('/boking/submit-order')}}" method="post">
+          <form role="form" action="{{url('/boking/submit-order/checkout')}}" method="post">
             {{ csrf_field() }}
             <div class="row text-center">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-              <input type="text" name="nama" class="form-control mb-2 mr-sm-2" placeholder="Nama anda">
-              <input type="email" name="email" class="form-control mb-2 mr-sm-2" placeholder="Email anda">
-              <input type="text" name="no_hp" class="form-control mb-2 mr-sm-2" placeholder="Nomor Handphone anda">
-              <input type="text" value="{{$harga->nama_bus}}"name="nama_bus" class="form-control mb-2 mr-sm-2" placeholder="Nama Bus">
-              <input type="text" value="{{$harga->harga}}" name="harga" class="form-control mb-2 mr-sm-2" placeholder="Harga Bus">
-              <input type="text" value="{{$harga->kota_asal}}" name="alamat_jemput" class="form-control mb-2 mr-sm-2" placeholder="Kota Asal">
-              <input type="text" value="{{$harga->kota_tujuan}}" name="alamat_tujuan" class="form-control mb-2 mr-sm-2" placeholder="Kota Tujuan">
-
-              <div class="form-group">
-                 <label for="" style="">Tanggal Berangkat</label>
-                 <input class="form-control" name="tanggal_pergi" type="date" value="">
+              <div class="form-group row">
+                <label for="">Nama Pemesan</label>
+                <input type="text" value="{{Auth::guard('users')->user()->nama_lengkap}}" name="nama" class="form-control mb-2 mr-sm-2" placeholder="Nama anda" required disabled>
               </div>
-              <div class="form-group">
+              <div class="form-group row">
+                <label for="">Email Pemesan</label>
+                <input type="email" value="{{Auth::guard('users')->user()->email}}" name="email" class="form-control mb-2 mr-sm-2" placeholder="Email anda" required disabled>
+              </div>
+              <div class="form-group row">
+                <label for="">Nomor Handphone</label>
+                <input type="text" name="no_hp" class="form-control mb-2 mr-sm-2" placeholder="Nomor Handphone anda" required>
+              </div>
+              <div class="form-group row">
+                <label for="">Nama Bus</label>
+                <input type="text" value="{{$harga->nama_bus}}"name="nama_bus" class="form-control mb-2 mr-sm-2" placeholder="Nama Bus" required>
+              </div>
+              <div class="form-group row">
+                <label for="">Harga Sewa</label>
+                <input type="text" value="{{$harga->harga}}" name="harga" class="form-control mb-2 mr-sm-2" placeholder="Harga Bus" required>
+              </div>
+              <div class="form-group row">
+                <label for="">Kota Asal</label>
+                <input type="text" value="{{$harga->kota_asal}}" name="alamat_jemput" class="form-control mb-2 mr-sm-2" placeholder="Kota Asal" required>
+              </div>
+              <div class="form-group row">
+                <label for="">Kota Tujuan</label>
+                <input type="text" value="{{$harga->kota_tujuan}}" name="alamat_tujuan" class="form-control mb-2 mr-sm-2" placeholder="Kota Tujuan" required>
+              </div>
+              <div class="form-group row">
+                 <label for="" style="">Tanggal Berangkat</label>
+                 <input class="form-control" name="tanggal_pergi" type="date" value="" required>
+              </div>
+              <div class="form-group row">
                  <label for="" style="">Tanggal Pulang</label>
-                 <input class="form-control" name="tanggal_pulang" type="date" value="">
+                 <input class="form-control" name="tanggal_pulang" type="date" value="" required>
               </div>
               <button type="submit" class="btn btn-block" style="background: #f96d01; color: #fff">Submit</button>
             </div>
@@ -168,7 +188,6 @@
             </div>
           </form>
         @endif
-
       </div>
     </section>
 

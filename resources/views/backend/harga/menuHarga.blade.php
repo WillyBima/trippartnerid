@@ -58,7 +58,7 @@
                     <td>{{$no}}</td>
                     <td>{{$h->nama_bus}}</td>
                     <td>{{$h->kota_asal}} - {{$h->kota_tujuan}}</td>
-                    <td>{{$h->harga}}</td>
+                    <td>{{number_format($h->harga, 2)}}</td>
                     <td><a href="{{url('/MenuHarga/editHarga/'.$h->id)}}" class="btn btn-primary" style="width: 70%;"><span class="fa fa-edit color-white"><span></a></td>
                   </tr>
                   @php($no++)

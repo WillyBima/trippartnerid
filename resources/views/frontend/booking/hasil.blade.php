@@ -71,7 +71,7 @@
                     <?php $a++; ?>
                   </div>
                   <div class="col-md-3" style="text-align: center;">
-                    <p style="font-size: 20px; margin-top: 10px;"><b>RP. {{$bus_akhir->harga}}</b>/hari</p>
+                    <p style="font-size: 20px; margin-top: 10px;"><b>RP. {{number_format($bus_akhir->harga, 2)}}</b>/hari</p>
                     <a href="{{url('/boking/booking-sekarang/'.$bus_akhir->slug.'/'.$bus_akhir->rute_bus)}}" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
                   </div>
                 </div>

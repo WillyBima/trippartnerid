@@ -20,16 +20,18 @@ Route::get('/boking', 'BokingController@boking');
 Route::get('/boking/booking-sekarang/{nama_bus}/{rute_bus}', 'BokingController@bookingnow');
 Route::get('/boking/booking-sekarang/{nama_bus}', 'ArmadaController@bookarmada');
 Route::post('/boking/submit-order','BokingController@submitBoking');
+Route::post('/boking/submit-order/checkout','BokingController@checkout');
 Route::post('/cari-bus','PerhitunganController@hitung');
 Route::get('/cari-bus/hasil-pencarian', 'PerhitunganController@hitung');
 
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['AuthUser']], function() {
-  Route::get('/dashboardUser', 'DashboardUser@dashuser');
-  Route::get('/dashboardUser/myOrder', 'DashboardUser@myOrder');
-  Route::get('/dashboardUser/historyOrder', 'DashboardUser@history');
-  Route::get('/dashboardUser/accountInfo', 'DashboardUser@accountInfo');
+  Route::get('/dashboardUser', 'DashboarduserController@dashuser');
+  Route::get('/dashboardUser/myOrder', 'DashboarduserController@myOrder');
+  Route::get('/dashboardUser/historyOrder', 'DashboarduserController@history');
+  Route::get('/dashboardUser/accountInfo', 'DashboarduserController@accountInfo');
+  Route::post('/dashboardUser/ubahakun/{email}', 'DashboarduserController@ubahakun');
   Route::get('/logout', 'RegisterController@logout');
 });
 
@@ -89,9 +91,10 @@ Route::post('/MenuBus/tambahData','DashboardController@tambahData');
 Route::get('/MenuBus/createData', 'DashboardController@createData');
 Route::get('/MenuBus/editData/{id}', 'DashboardController@editData');
 Route::post('/MenuBus/updateData/{id}', 'DashboardController@updateData');
+Route::get('/MenuBus/viewData/{id}', 'DashboardController@viewData');
 Route::delete('/MenuBus/{id}', 'DashboardController@destroy');
 
-Route::get('/MenuBus/viewData/{id}', 'DashboardController@viewData');
+
 Route::get('/MenuOrder/viewOrder/{id}', 'DashboardController@viewOrder');
 Route::get('/MenuPO/viewPo/{id}', 'DashboardController@viewPo');
 Route::get('/menuComment/viewComment/{id}', 'DashboardController@viewComment');

@@ -70,7 +70,7 @@
                 </div>
                 <div class="form-group">
                   <label>Harga</label>
-                  <input type="text" class="form-control" name="harga" placeholder="Enter ...">
+                  <input type="text" class="form-control" name="harga" placeholder="Enter ..." required>
                 </div>
               </div>
               <div class="box-footer">

@@ -99,6 +99,16 @@ class RegisterController extends Controller
       }
     }
 
+    // public function ubahakun(Request $request, $id){
+    //   $user = User::find($id);
+    //
+    //   $user->nama_lengkap = $request['nama_lengkap'];
+    //   $user->password     = $request['password'];
+    //
+    //   $user->save();
+    //   return redirect('/dashboardUser/accountInfo');
+    // }
+
     public function logout()
     {
       Auth::guard('users')->logout();

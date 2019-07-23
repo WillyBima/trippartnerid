@@ -72,11 +72,11 @@
                 </div>
                 <div class="form-group">
                   <label>Nama Bus</label>
-                  <input type="text" class="form-control" name="nama_bus" placeholder="Enter ...">
+                  <input type="text" class="form-control" name="nama_bus" placeholder="Enter ..." required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File Gambar Bus</label>
-                  <input type="file" name="gambar_bus" id="exampleInputFile">
+                  <input type="file" name="gambar_bus" id="exampleInputFile" required>
                 </div>
 
                 <div class="form-group">
@@ -84,7 +84,7 @@
                   @foreach($fasilitas as $fasilitas)
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="checkbox" name="fasilitas[]" class="form-check-input" value="{{$fasilitas->id_fasilitas}}"><i class="{{$fasilitas->icon}}"></i> {{$fasilitas->nama_fasilitas}}
+                      <input type="checkbox" name="fasilitas[]" class="form-check-input" value="{{$fasilitas->id_fasilitas}}" required><i class="{{$fasilitas->icon}}"></i> {{$fasilitas->nama_fasilitas}}
                     </label>
                   </div>
                   @endforeach

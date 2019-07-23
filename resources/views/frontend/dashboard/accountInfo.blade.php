@@ -52,17 +52,20 @@
                 <h5><b>Account Information</b></h5>
                 <hr style="width: auto; border-bottom: 1px solid #95a5a6;">
                 <br>
+                @foreach($ubah as $ubah)
+                <form class="" action="{{url('/dashboardUser/ubahakun/.$ubah->email')}}" method="post">
+                  {{ csrf_field() }}
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Nama</label>
-                      <input type="text" class="form-control" name="nama_lengkap" value="{{Auth::guard('users')->user()->nama_lengkap}}">
+                      <input type="text" class="form-control" name="nama_lengkap" value="{{$ubah->nama_lengkap}}">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="text" class="form-control" name="email" value="{{Auth::guard('users')->user()->email}}">
+                      <input type="text" class="form-control" name="email" value="{{$ubah->email}}">
                     </div>
                   </div>
                 </div>
@@ -71,20 +74,19 @@
                 <div class="row" style="margin-top: 50px;">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Password Sekarang</label>
-                      <input type="text" class="form-control" name="password">
+                      <label>Password Baru</label>
+                      <input type="password" class="form-control" name="password">
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Password Baru</label>
-                      <input type="text" class="form-control" name="password">
-                    </div>
+
                   </div>
                 </div>
               </div>
 
-              <a href="" class="btn" role="button" style="padding: 10px; margin-top: 20px; margin-left: 730px; font-family: Cambria; background-color: #f96d01; color: #ffffff;">Simpan Perubahan</a>
+              <button type="submit" class="btn" style="padding: 10px; margin-top: 20px; margin-left: 730px; font-family: Cambria; background-color: #f96d01; color: #ffffff;">Simpan Perubahan</button>
+              </form>
+              @endforeach
               <a href="{{url('/dashboardUser')}}" style="color: #d35400"><img src="{{url('assets/img/icon/kembali.png')}}" alt=""> Kembali</a>
           </div>
         </div>

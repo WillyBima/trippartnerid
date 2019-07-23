@@ -100,6 +100,7 @@ class PerhitunganController extends Controller
       $bus = array('id'=>$id,'nama'=>$nama_bus,'jenis'=>$jenis_bus,'harga'=>$harga,'fasilitas'=>$jumlah_fasilitas);
       array_push($bus_array,$bus);
     }
+    // dd($bus_array);
     //Tabel Kuadrat
     $bus_array_kuadrat =  array();
     for($i=0; $i<count($bus_array); $i++){
@@ -112,7 +113,7 @@ class PerhitunganController extends Controller
       $bus = array('id'=>$bus_id,'nama'=>$nama_bus,'jenis'=>$bus_jenis,'harga'=>$bus_harga,'fasilitas'=>$bus_fasilitas);
       array_push($bus_array_kuadrat,$bus);
     }
-
+    // dd($bus_array_kuadrat);
     //hasil tabel kuadrat
     $hasil_jenis_kuadrat = array(); $hasil_harga_kuadrat = array(); $hasil_fasilitas_kuadrat = array();
 
@@ -126,7 +127,7 @@ class PerhitunganController extends Controller
     $hasil_akhir_jenis = sqrt(array_sum($hasil_jenis_kuadrat));
     $hasil_akhir_harga = sqrt(array_sum($hasil_harga_kuadrat));
     $hasil_akhir_fasilitas = sqrt(array_sum($hasil_fasilitas_kuadrat));
-
+    // dd($hasil_akhir_jenis, $hasil_akhir_harga, $hasil_akhir_fasilitas);
     //Normalisasi dan Terbobots
     $normalisasi = array(); $jenis_items = array(); $harga_items = array(); $fasilitas_items = array();
 
@@ -139,11 +140,12 @@ class PerhitunganController extends Controller
       $hasil_normalisasi = array('jenis'=>$bus_jenis,'harga'=>$bus_harga,'fasilitas'=>$bus_fasilitas);
       array_push($normalisasi,$hasil_normalisasi);
     };
+    // dd($normalisasi);
 
     //Matriks Solusi Ideal
     $positif = array(max($jenis_items), min($jenis_items), max($fasilitas_items));
     $negatif = array(min($jenis_items), max($jenis_items), min($fasilitas_items));
-
+    // dd($positif);
     //Jarak Solusi Ideal
     $jarak_solusi_ideal = array();
     for($i=0; $i<count($normalisasi); $i++){
@@ -153,6 +155,7 @@ class PerhitunganController extends Controller
       $data = array('positif'=>$jarak_solusi_positif, 'negatif'=>$jarak_solusi_negatif);
       array_push($jarak_solusi_ideal,$data);
     }
+    // dd($jarak_solusi_ideal);
 
     //Preferensi
     $hasil_final_preferensi = array();
@@ -169,6 +172,7 @@ class PerhitunganController extends Controller
     $hasil_akhir = array_reverse(array_values(Arr::sort($hasil_final_preferensi, function ($value) {
           return $value['hasil'];
       })));
+    // dd($hasil_akhir);
 
       return $hasil_akhir;
   }

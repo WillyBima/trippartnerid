@@ -54,7 +54,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Nama Kota</label>
-                  <input type="text" class="form-control" name="nama_kota" placeholder="Enter ...">
+                  <input type="text" class="form-control" name="nama_kota" placeholder="Enter ..." required>
                 </div>
               </div>
               <div class="box-footer">

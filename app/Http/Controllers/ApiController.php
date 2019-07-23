@@ -362,7 +362,7 @@ class ApiController extends Controller
           $order->alamat_tujuan  = $request->input('alamat_tujuan');
           $order->tanggal_pergi  = $request->input('tanggal_pergi');
           $order->tanggal_pulang = $request->input('tanggal_pulang');
-          $order->status         = $request->input('status');
+          $order->status         = 'Belum Diproses';
 
           $order->save();
           return response()->json([

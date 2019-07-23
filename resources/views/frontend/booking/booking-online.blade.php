@@ -75,7 +75,7 @@
                           </button>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="harga" class="form-control" placeholder="Harga Bus yang di inginkan">
+                            <input type="text" name="harga" class="form-control" placeholder="Harga Bus yang di inginkan" required>
                         </div>
                         <div class="form-group">
                           <select name="fasilitas" class="form-control">
