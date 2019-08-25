@@ -16,7 +16,7 @@ class DashboarduserController extends Controller
   {
     //panggil si id orang login
     $email = Auth::guard('users')->user()->email;
-    $order = DB::table('order')->select('*')->where('email',$email)->get();
+    $order = DB::table('order')->select('*')->where('email',$email)->orderBy('created_at','DESC')->limit(1)->get();
 
     return view('frontend.dashboard.dashboard',['order'=>$order]);
   }
@@ -25,7 +25,7 @@ class DashboarduserController extends Controller
   {
     //panggil si id orang login
     $email = Auth::guard('users')->user()->email;
-    $order = DB::table('order')->select('*')->where([['email',$email],['status','!=','Selesai']])->get();
+    $order = DB::table('order')->select('*')->where([['email',$email],['status','!=','Selesai']])->orderBy('created_at','DESC')->get();
 
     return view('frontend.dashboard.myOrder',['order'=>$order]);
   }

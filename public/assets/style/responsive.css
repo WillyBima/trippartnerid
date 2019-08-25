@@ -1,0 +1,82 @@
+@media only screen and (max-width: 600px) {
+  /* BERANDA */
+  .corousel-item{
+    width: auto;
+    height: auto;
+  }
+
+  .title{
+    font-size: 20px;
+  }
+
+  .subtitle{
+    font-size: 10px;
+  }
+
+  .title-manfaat{
+    font-size: 15px;
+  }
+
+  .line{
+    width: 100px;
+    border-bottom: 1px solid #25aae2;
+  }
+
+  .title-booking{
+    font-size: 15px;
+    margin-left: 150px;
+    padding: 0px;
+    margin-top: 15px;
+  }
+
+  .subtitle-booking{
+    font-size: 10px;
+    margin-left: 70px;
+  }
+
+  .button .btn{
+    width: auto;
+    height: auto;
+    font-family: Cambria;
+    background-color: #f96d01;
+    color: #ffffff;
+  }
+
+  /* BOOKING */
+  /* .header{
+    margin-bottom: 0px;
+  } */
+
+  .title-header{
+    font-size: 25px;
+  }
+
+  .subtitle-header{
+    font-size: 12px;
+  }
+
+  .alert .alert-warning a{
+    font-size: 5px;
+  }
+
+  /* TENTANG KAMI */
+    .title-about{
+    font-size: 25px;
+    text-align: center;
+    padding: 0px;
+  }
+
+  .title-contact{
+    margin-top: 20px;
+  }
+
+  .logo{
+    margin-left: 45px;
+  }
+
+  .login{
+    font-size: 15px;
+    margin-left: 5px;
+    margin-top: 0px;
+  }
+}

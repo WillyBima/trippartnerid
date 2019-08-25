@@ -84,7 +84,7 @@
                   @foreach($fasilitas as $fasilitas)
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="checkbox" name="fasilitas[]" class="form-check-input" value="{{$fasilitas->id_fasilitas}}" required><i class="{{$fasilitas->icon}}"></i> {{$fasilitas->nama_fasilitas}}
+                      <input type="checkbox" name="fasilitas[]" class="form-check-input" value="{{$fasilitas->id_fasilitas}}"><i class="{{$fasilitas->icon}}"></i> {{$fasilitas->nama_fasilitas}}
                     </label>
                   </div>
                   @endforeach

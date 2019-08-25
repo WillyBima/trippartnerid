@@ -24,19 +24,15 @@
               <form action="{{url('/login/loginCustomer')}}" method="post" class="login" style="padding: 50px;">
                 {{ csrf_field() }}
                 <div class="form-group">
-                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-muted text-left">We'll never share your email with anyone else.</small>
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                  <small id="emailHelp" class="form-text text-muted text-left">Kami tidak akan pernah membagikan email Anda kepada orang lain.</small>
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                 </div>
-                <div class="form-group forgot-box" style="margin-top: 25px; margin-bottom: 20px;">
-			            <a href="#" style="font-family: Cambria; color: #f96d01; font-size: 13px;">Lupa Kata Sandi?</a>
-		            </div>
-
                 <button class="btn btn-block" style="font-family: Cambria; background-color: #f96d01; color: #ffffff;">Login</button>
 
-                <p class="dont-have-account js-href" style="margin-top: 20px; font-family: Cambria;">
+                <p class="dont-have-account js-href" style="margin-top: 30px; font-family: Cambria;">
             			Belum punya akun?  <a href="{{url('/daftar')}}" data-state="register" style="font-family: Cambria; color: #f96d01; font-size: 15px;">Daftar Sekarang</a>
             		</p>
               </form>

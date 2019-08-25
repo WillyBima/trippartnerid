@@ -199,7 +199,7 @@ class DashboardController extends Controller
     {
       $bus = DB::table('bus')
                ->join('po', 'po.id', '=', 'bus.nama_po')
-               ->select('po.id','po.nama_po','bus.jenis_bus','bus.nama_bus','bus.gambar_bus')
+               ->select('po.id','po.nama_po', 'bus.id', 'bus.jenis_bus','bus.nama_bus','bus.gambar_bus')
                ->get();
       return view('backend.bus.menuBus',['bus'=>$bus]);
     }

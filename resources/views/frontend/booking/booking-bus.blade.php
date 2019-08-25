@@ -108,7 +108,7 @@
               <div class="col-md-6">
                 <p class="title-detail-bus" style="margin-top: 10px;"><b>Harga Sewa Bus</b></p>
                 @foreach($harga as $harga)
-                <p>{{$harga->kota_asal}} - {{$harga->kota_tujuan}} : Rp.{{$harga->harga}}/hari</p>
+                <p>{{$harga->kota_asal}} - {{$harga->kota_tujuan}} : Rp.{{number_format($harga->harga, 2)}}/hari</p>
                 @endforeach
               </div>
               <div class="col-md-6">

@@ -17,6 +17,7 @@ Route::get('/armada', 'ArmadaController@armada');
 Route::get('/armada/detail-armada/{nama_po}', 'ArmadaController@detailarmada');
 
 Route::get('/boking', 'BokingController@boking');
+Route::get('/newboking', 'BokingController@newbooking');
 Route::get('/boking/booking-sekarang/{nama_bus}/{rute_bus}', 'BokingController@bookingnow');
 Route::get('/boking/booking-sekarang/{nama_bus}', 'ArmadaController@bookarmada');
 Route::post('/boking/submit-order','BokingController@submitBoking');

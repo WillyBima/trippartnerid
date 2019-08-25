@@ -49,9 +49,10 @@ class PerhitunganController extends Controller
                  ->select('*')
                  ->whereIn('bus.id',$array_ids)
                  ->orderByRaw("field(bus.id,{$placeholders})", $array_ids)
-                 ->where([['kota_asal',$kota_asal], ['kota_tujuan',$kota_tujuan]])
+                 ->where([['kota_asal',$kota_asal], ['kota_tujuan',$kota_tujuan],['Harga','<=',$harga]])
                  ->get();
-      // dd($bus_akhir);
+      $bus_akhir_banget = collect($bus_akhir)->sortBy('harga')->toArray();
+
 
        $fasilitas_bus = array();
        for ($i=0; $i < count($hasil_akhir); $i++) {
@@ -67,7 +68,7 @@ class PerhitunganController extends Controller
 
       // dd($fasilitas_bus);
 
-      return view('frontend.booking.hasil', ['bus_akhir'=>$bus_akhir, 'rute'=>$rute, 'fasilitas_bus'=>$fasilitas_bus]);
+      return view('frontend.booking.hasil', ['bus_akhir'=>$bus_akhir_banget, 'rute'=>$rute, 'fasilitas_bus'=>$fasilitas_bus]);
   }
 
   public function cariBus($kota_asal, $kota_tujuan, $jenis_bus, $harga, $fasilitas)
@@ -132,9 +133,9 @@ class PerhitunganController extends Controller
     $normalisasi = array(); $jenis_items = array(); $harga_items = array(); $fasilitas_items = array();
 
     for($i=0; $i<count($bus_array); $i++){
-      $bus_jenis = ($bus_array[$i]['jenis'] / $hasil_akhir_jenis) * 4;
-      $bus_harga = ($bus_array[$i]['harga'] / $hasil_akhir_harga) * 5;
-      $bus_fasilitas = ($bus_array[$i]['fasilitas'] / $hasil_akhir_fasilitas) * 3;
+      $bus_jenis = ($bus_array[$i]['jenis'] / $hasil_akhir_jenis) * 0.26;
+      $bus_harga = ($bus_array[$i]['harga'] / $hasil_akhir_harga) * 0.63;
+      $bus_fasilitas = ($bus_array[$i]['fasilitas'] / $hasil_akhir_fasilitas) * 0.11;
 
       array_push($jenis_items,$bus_jenis); array_push($harga_items,$bus_harga); array_push($fasilitas_items,$bus_fasilitas);
       $hasil_normalisasi = array('jenis'=>$bus_jenis,'harga'=>$bus_harga,'fasilitas'=>$bus_fasilitas);
@@ -172,7 +173,6 @@ class PerhitunganController extends Controller
     $hasil_akhir = array_reverse(array_values(Arr::sort($hasil_final_preferensi, function ($value) {
           return $value['hasil'];
       })));
-    // dd($hasil_akhir);
 
       return $hasil_akhir;
   }

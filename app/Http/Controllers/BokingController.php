@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Auth;
 use App\Order;
 use App\Bus;
 use App\Fasilitas;
@@ -18,6 +18,13 @@ class BokingController extends Controller
       $rute = DB::table('kota')->select('*')->get();
 
       return view('frontend.booking.booking-online', ['rute'=>$rute]);
+    }
+
+    public function newbooking()
+    {
+      $rute = DB::table('kota')->select('*')->get();
+
+      return view('frontend.booking.newbooking', ['rute'=>$rute]);
     }
 
     public function bookingnow($slug, $rutenya)
@@ -90,6 +97,7 @@ class BokingController extends Controller
       $order->alamat_tujuan = $request['alamat_tujuan'];
       $order->tanggal_pergi = $request['tanggal_pergi'];
       $order->tanggal_pulang = $request['tanggal_pulang'];
+      // dd(date_create_from_format('MM/dd/YYYY',$order->tanggal_pergi), $order->tanggal_pulang);
       $order->status = 'Belum Diproses';
 
       // $dataorder = [
@@ -113,23 +121,24 @@ class BokingController extends Controller
     public function checkout(Request $request)
     {
       $pergi = date(strtotime($request['tanggal_pergi']));
-      $perginya = date_create_from_format('MM/dd/YYYY', $pergi);
+      $perginya = date('Y-m-d',strtotime($request['tanggal_pergi']));
       $pulang = date(strtotime($request['tanggal_pulang']));
-      $pulangnya = date_create_from_format('MM/DD/YYYY', $request['tanggal_pulang']);
+      $pulangnya = date('Y-m-d',strtotime($request['tanggal_pulang']));
+
       $jml_hari = ($pulang-$pergi)/86400+1;
 
       $dataorder = [
-        'nama'            => $request['nama'],
-        'email'           => $request['email'],
+        'nama'            => Auth::guard('users')->user()->nama_lengkap,
+        'email'           => Auth::guard('users')->user()->email,
         'no_hp'           => $request['no_hp'],
         'nama_bus'        => $request['nama_bus'],
-        'harga'           => $request['harga']*$jml_hari,
+        'harga'           => $request['harga'] * $jml_hari,
         'alamat_jemput'   => $request['alamat_jemput'],
         'alamat_tujuan'   => $request['alamat_tujuan'],
-        'tanggal_pergi'   => $request['tanggal_pergi'],
-        'tanggal_pulang'  => $request['tanggal_pulang'],
+        'tanggal_pergi'   => $perginya,
+        'tanggal_pulang'  => $pulangnya,
       ];
-      // dd($dataorder);
+
       return view('frontend.booking.checkout',['dataorder'=> $dataorder]);
     }
 }

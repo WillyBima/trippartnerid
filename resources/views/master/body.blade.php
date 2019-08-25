@@ -2,7 +2,7 @@
 <section id="logo">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 logo">
         <a href="{{url('/')}}"><img src="{{url('assets/img/icon/logobaru.png')}}" class="img-fluid" style="width: 180px; height: 59px; margin-top: 17px; margin-left: 100px;"></a>
       </div>
 
@@ -10,7 +10,7 @@
 
       </div>
 
-      <div class="col-md-4" style="margin-top: 30px;">
+      <div class="col-md-4 login" style="margin-top: 30px;">
         @if(!Auth::guard('users')->user())
         <a href="{{url('/login')}}" style="font-family: Cambria; font-size: 15px; color: #f96d01;
         margin-left: 130px;"><img src="{{url('assets/img/icon/user.png')}}"
@@ -143,8 +143,11 @@
 <!-- js file -->
 <script type="text/javascript" src="{{url('assets/js/jquery-3.2.1.min.js')}}"></script>
 
+<script type="text/javascript" src="{{url('assets/js/bootstrap-datepicker.min.js')}}"></script>
+
 <!-- owl carousel js -->
 <script type="text/javascript" src="{{url('assets/OwlCarousel/dist/owl.carousel.min.js')}}"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 @endsection

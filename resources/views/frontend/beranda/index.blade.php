@@ -74,7 +74,7 @@
             <p class="title text-center">MENGAPA MEMILIH <b> TRIPPARTNER.COM?</b></p>
             <p class="subtitle text-center">Kami memberikan solusi
             terbaik untuk kebutuhan transportasi anda</p>
-            <hr style="width: 1000px; border-bottom: 1px solid #25aae2;">
+            <hr class="line" style="width: auto; border-bottom: 1px solid #25aae2;">
             <div class="row" style="margin-top: 40px;">
                 <div class="col-md-4">
                     <div class="image bg-color-blue text-center">
@@ -104,7 +104,7 @@
         <p class="title text-center"><b>ARMADA KAMI</b></p>
         <p class="subtitle text-center">Kami memberikan solusi
         terbaik untuk kebutuhan transportasi anda</p>
-        <hr style="width: 1000px; border-bottom: 1px solid #25aae2;">
+        <hr class="line" style="width: auto; border-bottom: 1px solid #25aae2;">
         <div class="row">
           <div class="col-md-4 text-center" style="padding: 30px;">
             <div class="card" style="width:400px">
@@ -150,7 +150,7 @@
               <p class="subtitle-booking">Kami memberikan solusi
                 terbaik untuk kebutuhan transportasi anda</p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 button">
               <a href="{{url('/boking')}}" class="btn" role="button" style="width: 384px; height: 68px; margin-top: 40px; margin-left: 150px; font-family: Cambria; background-color: #f96d01; color: #ffffff; padding-top: 20px;">BOOKING ONLINE SEKARANG</a>
             </div>
           </div>

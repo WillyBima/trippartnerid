@@ -176,11 +176,11 @@
               </div>
               <div class="form-group row">
                  <label for="" style="">Tanggal Berangkat</label>
-                 <input class="form-control" name="tanggal_pergi" type="date" value="" required>
+                 <input id="startDate" class="form-control datepicker" name="tanggal_pergi" type="text" value="" required>
               </div>
               <div class="form-group row">
                  <label for="" style="">Tanggal Pulang</label>
-                 <input class="form-control" name="tanggal_pulang" type="date" value="" required>
+                 <input id="endDate" class="form-control datepicker" name="tanggal_pulang" type="text" value="" required>
               </div>
               <button type="submit" class="btn btn-block" style="background: #f96d01; color: #fff">Submit</button>
             </div>
@@ -197,6 +197,24 @@
 
     <!-- script -->
     @yield('script-frontend')
+    <script>
+        var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+        $('#startDate').datepicker({
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: today,
+            maxDate: function () {
+                return $('#endDate').val();
+            }
+        });
+        $('#endDate').datepicker({
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: function () {
+                return $('#startDate').val();
+            }
+        });
+    </script>
     <!-- endscript -->
   </body>
 </html>

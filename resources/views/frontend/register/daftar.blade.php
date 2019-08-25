@@ -24,15 +24,15 @@
               <form action="{{url('/daftar/daftarCustomer')}}" class="daftar" style="padding: 50px;" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
-                  <input type="text" name="nama_lengkap" class="form-control" id="formGroupExampleInput" placeholder="Nama Lengkap">
+                  <input type="text" name="nama_lengkap" class="form-control" id="formGroupExampleInput" placeholder="Nama Lengkap" required>
                 </div>
 
                 <div class="form-group">
-                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Alamat Email">
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Alamat Email" required>
                 </div>
 
                 <div class="form-group">
-                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Kata Sandi">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Kata Sandi" required>
                 </div>
 
                 <p class="privacy-policy-txt" style="font-family: Cambria; font-size: 14px; margin-top: 30px; margin-bottom: 30px;">
@@ -42,7 +42,7 @@
                 <button type="submit" class="btn btn-block" style="font-family: Cambria; background-color: #f96d01; color: #ffffff;">Daftar</button>
 
                 <p class="dont-have-account js-href" style="margin-top: 20px; font-family: Cambria;">
-            			Sudah punya akun?  <a href="/login" data-state="register" style="font-family: Cambria; color: #f96d01; font-size: 15px;">Login Sekarang</a>
+            			Sudah punya akun?  <a href="{{url('/login')}}" data-state="register" style="font-family: Cambria; color: #f96d01; font-size: 15px;">Login Sekarang</a>
             		</p>
               </form>
             </div>

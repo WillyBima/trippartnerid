@@ -35,6 +35,13 @@
         <!-- booking now -->
         <section>
           <div class="container-fluid" style="margin-bottom: 30px;">
+            @if(count($bus_akhir) < 1)
+            <div class="contactInfo text-center" style="font-family: Cambria; border: solid 1px #95a5a6;; padding: 70px; border-radius: 10px; margin-bottom: 30px;">
+              <p style="text-transform: capitalize;">Bus yang Anda Inginkan tidak ditemukan</p>
+              <p>Cek Pencarian Anda !!!</p>
+              <a href="{{url('/boking')}}" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
+            </div>
+            @else
             <div class="row" style="margin-top: 20px;">
               <div class="col-md-12 text-center">
                 <div class="alert alert-primary">
@@ -78,6 +85,7 @@
               </div>
             </div>
             @endforeach
+            @endif
           </div>
         </section>
 
