@@ -27,38 +27,19 @@ class BokingController extends Controller
       return view('frontend.booking.newbooking', ['rute'=>$rute]);
     }
 
-    public function bookingnow($slug, $rutenya)
+    public function bookingnow($slug)
     {
-
-      // dd($rutenya);
       $rute = DB::table('rute')->select('*')->get();
-      // dd($slug);
-      $databus = DB::table('bus')
-               ->select('*')
-               ->where('slug', '=', $slug)
-               ->get();
 
-      $datafasilitas = DB::table('fasilitas')
-                     ->select('*')
-                     ->get();
+      $databus = DB::table('bus')->select('*')->where('slug', '=', $slug)->get();
+      $datafasilitas = DB::table('fasilitas')->select('*')->get();
+      $datafasilitasbus = DB::table('fasilitas_bus')->join('fasilitas', 'fasilitas_bus.id_fasilitas', '=', 'fasilitas.id_fasilitas')->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id')
+                        ->where('bus.slug',$slug)->select('fasilitas.nama_fasilitas', 'fasilitas.icon')->get();
 
+      // dd($databus);
 
-      $datafasilitasbus = DB::table('fasilitas_bus')
-                        ->join('fasilitas', 'fasilitas_bus.id_fasilitas', '=', 'fasilitas.id_fasilitas')
-                        ->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id')
-                        ->where('bus.slug',$slug)
-                        ->select('fasilitas.nama_fasilitas', 'fasilitas.icon')
-                        ->get();
-
-      $harga = DB::table('harga')
-             ->join('bus','bus.id','harga.nama_bus')
-             ->join('rute','rute.id','harga.rute_bus')
-             ->select('*')
-             ->where([['bus.slug',$slug], ['rute.id', $rutenya]])
-             ->get();
-             // dd($harga);
-
-      return view('frontend.booking.booking-now', ['rute'=>$rute,'databus'=>$databus, 'datafasilitas'=>$datafasilitas, 'datafasilitasbus'=>$datafasilitasbus, 'harga'=>$harga]);
+      // dd($databus, $harga);
+      return view('frontend.booking.booking-now', ['rute'=>$rute,'databus'=>$databus, 'datafasilitas'=>$datafasilitas, 'datafasilitasbus'=>$datafasilitasbus]);
     }
 
     public function submitBoking(Request $request)

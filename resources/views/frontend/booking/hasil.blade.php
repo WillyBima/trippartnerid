@@ -35,7 +35,7 @@
         <!-- booking now -->
         <section>
           <div class="container-fluid" style="margin-bottom: 30px;">
-            @if(count($bus_akhir) < 1)
+            @if(count($hasil_array) < 1)
             <div class="contactInfo text-center" style="font-family: Cambria; border: solid 1px #95a5a6;; padding: 70px; border-radius: 10px; margin-bottom: 30px;">
               <p style="text-transform: capitalize;">Bus yang Anda Inginkan tidak ditemukan</p>
               <p>Cek Pencarian Anda !!!</p>
@@ -56,35 +56,31 @@
               </div>
             </div>
             <?php $a = 0; ?>
-            @foreach($bus_akhir as $bus_akhir)
+            @for($i=0; $i<count($hasil_array); $i++)
             <div class="row" style="font-family: Cambria; padding-left: 60px; padding-right: 60px; margin-top: 20px;">
               <div class="col-md-12" style="border: solid 1px #95a5a6;; padding: 30px; border-radius: 10px;">
                 <div class="row">
                   <div class="col-md-3">
                     <p><b>Nama Bus</b></p>
-                    <p>{{$bus_akhir->nama_bus}}</p>
+                    <p>{{$hasil_array[$i]['nama_bus']}}</p>
                   </div>
                   <div class="col-md-3">
                     <p><b>Rute Perjalanan</b></p>
-                    <p>{{$bus_akhir->kota_asal}} - {{$bus_akhir->kota_tujuan}}</p>
+                    <p>{{$hasil_array[$i]['kota_asal']}} - {{$hasil_array[$i]['kota_tujuan']}}</p>
                   </div>
-                  <div class="col-md-3">
-                    <p><b>Fasilitas Bus</b></p>
-                    <?php $fasilitas = $fasilitas_bus[$a]; ?>
-                      @foreach($fasilitas as $fasilitasnya)
-                        <p style="font-family: Cambria;">{{$fasilitasnya->nama_fasilitas}}</p>
-                      @endforeach
-
-                    <?php $a++; ?>
+                  <div class="col-md-3 text" style="padding-left: 40px;">
+                    <p><b>Jenis Bus</b></p>
+                    <p>{{$hasil_array[$i]['jenis']}}</p>
                   </div>
                   <div class="col-md-3" style="text-align: center;">
-                    <p style="font-size: 20px; margin-top: 10px;"><b>RP. {{number_format($bus_akhir->harga, 2)}}</b>/hari</p>
-                    <a href="{{url('/boking/booking-sekarang/'.$bus_akhir->slug.'/'.$bus_akhir->rute_bus)}}" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
+                    <p style="font-size: 20px; margin-top: 10px;"><b>RP. {{number_format($hasil_array[$i]['harga'], 2)}}</b>/hari</p>
+
+                    <a href="{{url('/boking/booking-now/'.$hasil_array[$i]['slug'])}}" class="btn btn-sm card-btn" role="button">Lihat Selengkapnya</a>
                   </div>
                 </div>
               </div>
             </div>
-            @endforeach
+            @endfor
             @endif
           </div>
         </section>

@@ -47,7 +47,7 @@
     <div id="page-content-container" style="padding-left: 130px;padding-top: 0px;padding-right: 85px; font-family: Cambria;">
         <div class="container-fluid">
             <div class="row">
-              <h4 style="margin-bottom: 20px;">MY DASHBOARD</h4>
+              <h4 style="margin-bottom: 20px;">DASHBOARD SAYA</h4>
                 <div class="col-md-12" style="border: solid 1px #95a5a6;; padding: 30px; border-radius: 10px;">
                     <h5 style="text-transform: capitalize;"><b>Hallo, {{Auth::guard('users')->user()->nama_lengkap}}</b></h5>
                     <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>

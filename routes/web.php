@@ -11,19 +11,31 @@
 |
 */
 
+Route::get('/beranda', 'ControllerBaru@newberanda');
+Route::get('/tentang-kami', 'ControllerBaru@newabout');
+Route::get('/galeri', 'ControllerBaru@galeri');
+Route::get('/kontak-kami', 'ControllerBaru@kontak');
+Route::get('/booking', 'ControllerBaru@booking');
+Route::get('/hasil-pencarian', 'ControllerBaru@hasil');
+Route::get('/detail-armada', 'ControllerBaru@detailarmada');
+
+
 Route::get('/', 'BerandaController@index');
 
 Route::get('/armada', 'ArmadaController@armada');
 Route::get('/armada/detail-armada/{nama_po}', 'ArmadaController@detailarmada');
 
-Route::get('/boking', 'BokingController@boking');
 Route::get('/newboking', 'BokingController@newbooking');
-Route::get('/boking/booking-sekarang/{nama_bus}/{rute_bus}', 'BokingController@bookingnow');
+Route::post('/cari-bus','PerhitunganController@search');
+Route::get('/cari-bus/hasil-pencarian', 'PerhitunganController@search');
+
+Route::get('/boking', 'BokingController@boking');
+Route::get('/boking/booking-now/{nama_bus}', 'BokingController@bookingnow');
 Route::get('/boking/booking-sekarang/{nama_bus}', 'ArmadaController@bookarmada');
 Route::post('/boking/submit-order','BokingController@submitBoking');
 Route::post('/boking/submit-order/checkout','BokingController@checkout');
-Route::post('/cari-bus','PerhitunganController@hitung');
-Route::get('/cari-bus/hasil-pencarian', 'PerhitunganController@hitung');
+// Route::post('/cari-bus','PerhitunganController@hitung');
+// Route::get('/cari-bus/hasil-pencarian', 'PerhitunganController@hitung');
 
 Auth::routes(['verify' => true]);
 

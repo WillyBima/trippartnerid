@@ -19,6 +19,56 @@ use Auth;
 
 class PerhitunganController extends Controller
 {
+  public function search(Request $request)
+  {
+    $rute = DB::table('kota')->select('*')->get();
+
+    $pergi = date(strtotime($request['tanggal_pergi']));
+    $perginya = date('Y-m-d',strtotime($request['tanggal_pergi']));
+    $pulang = date(strtotime($request['tanggal_pulang']));
+    $pulangnya = date('Y-m-d',strtotime($request['tanggal_pulang']));
+
+    $jml_hari = ($pulang-$pergi)/86400+1;
+
+    $data = $request->all();
+
+    $tanggal_pergi  = $data['tanggal_pergi'];
+    $tanggal_pulang = $data['tanggal_pulang'];
+    $kota_asal      = $data['kota_asal'];
+    $kota_tujuan    = $data['kota_tujuan'];
+    $jenis_bus      = $data['jenis_bus'];
+
+    // dd($tanggal_pergi,$tanggal_pulang,$kota_asal,$kota_tujuan,$jenis_bus);
+
+    $hasil = DB::table('harga')
+           ->join('bus','bus.id','harga.nama_bus')
+           ->join('rute','rute.id','harga.rute_bus')
+           ->select('*')
+           ->where([['kota_asal',$kota_asal], ['kota_tujuan',$kota_tujuan],['jenis_bus',$jenis_bus]])
+           ->get();
+    // dd($hasil);
+
+    $hasil_array = array();
+    foreach($hasil as $hasil)
+    {
+        $id            = $hasil->id;
+        $nama_bus      = $hasil->nama_bus;
+        $harga         = $hasil->harga * $jml_hari;
+        $jenis_bus     = $hasil->jenis_bus;
+        $kota_asal     = $hasil->kota_asal;
+        $kota_tujuan   = $hasil->kota_tujuan;
+        $slug          = $hasil->slug;
+        $tanggal_pergi  = $data['tanggal_pergi'];
+        $tanggal_pulang = $data['tanggal_pulang'];
+
+        $hasil = array('id'=>$id,'nama_bus'=>$nama_bus,'harga'=>$harga,'jenis'=>$jenis_bus,'kota_asal'=>$kota_asal,'kota_tujuan'=>$kota_tujuan,'slug'=>$slug, 'tanggal_pergi'=>$tanggal_pergi,'tanggal_pulang'=>$tanggal_pulang);
+        array_push($hasil_array, $hasil);
+    }
+    // dd($hasil_array);
+    return view('frontend.booking.hasil', ['hasil'=>$hasil, 'hasil_array'=>$hasil_array, 'rute'=>$rute]);
+  }
+
+
   public function hitung(Request $request)
   {
       $rute = DB::table('kota')->select('*')->get();

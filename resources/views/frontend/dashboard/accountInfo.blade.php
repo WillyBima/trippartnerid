@@ -47,7 +47,7 @@
     <div id="page-content-container" style="padding-left: 130px;padding-top: 0px;padding-right: 85px; font-family: Cambria;">
         <div class="container-fluid">
           <div class="row" style="margin-bottom: 30px;">
-            <h4 style="margin-bottom: 20px;">EDIT ACCOUNT INFORMATION</h4>
+            <h4 style="margin-bottom: 20px;">UBAH INFORMASI AKUN</h4>
               <div class="col-md-12" style="border: solid 1px #95a5a6; padding: 30px; border-radius: 10px;">
                 <h5><b>Account Information</b></h5>
                 <hr style="width: auto; border-bottom: 1px solid #95a5a6;">

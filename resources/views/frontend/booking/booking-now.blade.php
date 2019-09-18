@@ -106,10 +106,7 @@
             </div>
             <div class="row" style="font-family: Cambria; font-size: 18px; color: #25aae2">
               <div class="col-md-6">
-                <p>Harga Sewa Bus</p>
-                <!-- @foreach($harga as $harga) -->
-                <p>{{$harga->kota_asal}} - {{$harga->kota_tujuan}} : Rp.{{number_format($harga->harga, 2)}}/hari</p>
-                <!-- @endforeach -->
+              
               </div>
               <div class="col-md-6">
 
@@ -141,6 +138,7 @@
             </div>
           </div>
         @else
+
           <form role="form" action="{{url('/boking/submit-order/checkout')}}" method="post">
             {{ csrf_field() }}
             <div class="row text-center">
@@ -160,19 +158,19 @@
               </div>
               <div class="form-group row">
                 <label for="">Nama Bus</label>
-                <input type="text" value="{{$harga->nama_bus}}"name="nama_bus" class="form-control mb-2 mr-sm-2" placeholder="Nama Bus" required>
+                <input type="text" value=""name="nama_bus" class="form-control mb-2 mr-sm-2" placeholder="Nama Bus" required>
               </div>
               <div class="form-group row">
                 <label for="">Harga Sewa</label>
-                <input type="text" value="{{$harga->harga}}" name="harga" class="form-control mb-2 mr-sm-2" placeholder="Harga Bus" required>
+                <input type="text" value="" name="harga" class="form-control mb-2 mr-sm-2" placeholder="Harga Bus" required>
               </div>
               <div class="form-group row">
                 <label for="">Kota Asal</label>
-                <input type="text" value="{{$harga->kota_asal}}" name="alamat_jemput" class="form-control mb-2 mr-sm-2" placeholder="Kota Asal" required>
+                <input type="text" value="" name="alamat_jemput" class="form-control mb-2 mr-sm-2" placeholder="Kota Asal" required>
               </div>
               <div class="form-group row">
                 <label for="">Kota Tujuan</label>
-                <input type="text" value="{{$harga->kota_tujuan}}" name="alamat_tujuan" class="form-control mb-2 mr-sm-2" placeholder="Kota Tujuan" required>
+                <input type="text" value="" name="alamat_tujuan" class="form-control mb-2 mr-sm-2" placeholder="Kota Tujuan" required>
               </div>
               <div class="form-group row">
                  <label for="" style="">Tanggal Berangkat</label>
@@ -187,6 +185,7 @@
             <div class="col-md-3"></div>
             </div>
           </form>
+
         @endif
       </div>
     </section>

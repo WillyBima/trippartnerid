@@ -31,6 +31,31 @@
 </section>
 @endsection
 
+@section('newnavbar-frontend')
+<!-- header -->
+<header>
+	<div class="container">
+		<!-- nav -->
+		<nav class="py-md-4 py-3 d-lg-flex">
+			<div id="logo">
+				<h1 class="mt-md-0 mt-2"> <a href="#"><span class="fa fa-map-signs"></span> TripPartner.id </a></h1>
+			</div>
+			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu ml-auto mt-1">
+				<li class=""><a href="{{url('/beranda')}}">Beranda</a></li>
+				<li class=""><a href="{{url('/tentang-kami')}}">Tentang Kami</a></li>
+				<li class=""><a href="{{url('/galeri')}}">Galeri</a></li>
+				<li class=""><a href="{{url('/kontak-kami')}}">Kontak</a></li>
+				<li class="booking"><a href="{{url('/booking')}}">Booking Sekarang</a></li>
+			</ul>
+		</nav>
+		<!-- //nav -->
+	</div>
+</header>
+<!-- //header -->
+@endsection
+
 @section('navbar-frontend')
 <section id="Navbar">
   <div class="container-fluid" style="padding-left:0px; padding-right: 0px;">
@@ -46,7 +71,7 @@
                   <a class="nav-link" href="{{url('/')}}"><span class="fa fa-home color-white"></span> BERANDA</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{url('/boking')}}"><span class="fa fa-search color-white"></span> BOOKING BUS</a>
+                  <a class="nav-link" href="{{url('/newboking')}}"><span class="fa fa-search color-white"></span> BOOKING BUS</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{url('/armada')}}"><span class="fa fa-bus-alt color-white"></span> ARMADA</a>
@@ -62,6 +87,85 @@
     </nav>
   </div>
 </section>
+@endsection
+
+@section('newfooter')
+<!--footer -->
+<footer>
+<section class="footer footer_w3layouts_section_1its py-5">
+	<div class="container py-lg-4 py-3">
+		<div class="row footer-top">
+			<div class="col-lg-3 col-sm-6 footer-grid_section_1its_w3">
+				<div class="footer-title">
+					<h3>Informasi Perusahaan</h3>
+				</div>
+				<div class="footer-text">
+					<p>Location : 1234 lock, Charlotte, North Carolina, United States</p>
+					<p>Phone : +12 534894364</p>
+					<p>Email : <a href="mailto:info@example.com">info@example.com</a></p>
+					<p>Fax : +12 534894364</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 footer-grid_section mt-sm-0 mt-4">
+				<div class="footer-title">
+					<h3>Tentang Kami</h3>
+				</div>
+				<div class="footer-text">
+					<p>PT. Valung Pramana Rancang merupakan perusahaan travel yang bergerak dibidang penyewaan Bus, yang menyediakan bus sewa untuk seluruh kota di Jawa dan Bali</p>
+				</div>
+				<ul class="social_section_1info">
+					<li class="mb-2 facebook"><a href="#"><span class="fa fa-facebook"></span></a></li>
+					<li class="mb-2 twitter"><a href="#"><span class="fa fa-twitter"></span></a></li>
+					<li class="google"><a href="#"><span class="fa fa-google-plus"></span></a></li>
+					<li class="linkedin"><a href="#"><span class="fa fa-instagram"></span></a></li>
+				</ul>
+			</div>
+			<div class="col-lg-3 col-sm-6 mt-lg-0 mt-4 footer-grid_section_1its_w3">
+				<div class="footer-title">
+					<h3>Destinasi Perjalanan</h3>
+				</div>
+				<div class="row">
+					<ul class="col-6 links">
+						<li><a href="#choose" class="scroll">Cisarua, Bogor </a></li>
+						<li><a href="#overview" class="scroll">Anyer </a></li>
+						<li><a href="#pricing" class="scroll">Bandung</a></li>
+						<li><a href="#faq" class="scroll"> Yogyakarta</a></li>
+						<li><a href="#testimonials" class="scroll">Solo </a></li>
+						<li><a href="#contact" class="scroll"> Malang </a></li>
+					</ul>
+					<ul class="col-6 links">
+						<li><a href="#">Cibodas </a></li>
+						<li><a href="#">Tangerang </a></li>
+						<li><a href="#faq" class="scroll">Semarang </a></li>
+						<li><a href="#">Surabaya </a></li>
+						<li><a href="#">Bali </a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6 mt-lg-0 mt-4 footer-grid_section_1its_w3">
+				<div class="footer-title">
+					<h3>Newsletter</h3>
+				</div>
+				<div class="footer-text">
+					<p>Masukkan Email anda, kami akan memberikan informasi terbaru tentang perusahaan kami.</p>
+					<form action="#" method="post">
+						<input type="email" name="Email" placeholder="Enter your email..." required="">
+						<button class="btn1"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+						<div class="clearfix"> </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</footer>
+<!-- //footer -->
+
+<!-- copyright -->
+<div class="copyright py-3 text-center">
+	<p>© 2019 TripPartner.id</p>
+</div>
+<!-- //copyright -->
 @endsection
 
 @section('footer-frontend')

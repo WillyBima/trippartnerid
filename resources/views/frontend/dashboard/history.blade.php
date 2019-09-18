@@ -46,7 +46,7 @@
       </div>
     <div id="page-content-container" style="padding-left: 130px;padding-top: 0px;padding-right: 85px; font-family: Cambria;">
         <div class="container-fluid">
-          <h4 style="margin-bottom: 20px;">HISTORY ORDERS</h4>
+          <h4 style="margin-bottom: 20px;">RIWAYAT PEMESANAN</h4>
           @if($order->isEmpty())
           <div class="contactInfo text-center" style="border: solid 1px #95a5a6;; padding: 70px; border-radius: 10px; margin-bottom: 30px;">
             <p style="text-transform: capitalize;">ANDA TIDAK MEMILIKI HISTORY PEMESANAN</p>
