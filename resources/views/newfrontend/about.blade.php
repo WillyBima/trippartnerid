@@ -28,29 +28,29 @@
     <!-- End Navbar -->
 
     <!-- banner -->
-    <section class="banner_inner" id="home">
+    <section class="banner_inner" id="home" style="background-image: url('{{asset('assets/img/images/pantaibali.jpg')}}');">
     	<div class="banner_inner_overlay">
     	</div>
     </section>
     <!-- //banner -->
 
     <!-- about -->
-    <section class="about py-5">
+    <section class="about py-5" style="font-family: Cambria;">
     	<div class="container py-lg-5 py-sm-4">
     		<div class="row">
     			<div class="col-lg-6 about-left">
-    				<h3 class="mt-lg-3">Kami memberikan pelayanan terbaik untuk anda, <strong>Explore with us!</strong></h3>
-    				<p class="mt-4">PT. Vallung Pramana Rancang adalah perusahaan biro perjalanan wisata yang didirikan pada tanggal
+    				<h3 class="mt-lg-3" style="font-family: Cambria;">Kami memberikan pelayanan terbaik untuk anda, <strong>Explore with us!</strong></h3>
+    				<p class="mt-4" style="font-family: Cambria;">PT. Vallung Pramana Rancang adalah perusahaan biro perjalanan wisata yang didirikan pada tanggal
                        6 Oktober 2015 oleh bapak Iswandi Hanindyo Kusuma sebagai direktur dan ibu Iswanti Nayana sebagai komisaris.
                        Tujuan didirikannya perusahaan ini adalah untuk membantu masyarakat luas dalam memenuhi kebutuhan wisata yang
                        setiap waktu permintaannya semakin banyak. Pada awal pembentukan, hanya ada 3 karyawan saja yang bekerja di
                        PT. Vallung Pramana Rancang.</p>
-    				<p class="mt-3"> Terbukti hingga sekarang PT. Vallung Pramana Rancang
+    				<p class="mt-3" style="font-family: Cambria;"> Terbukti hingga sekarang PT. Vallung Pramana Rancang
                            sudah mulai dikenal dikalangan masyarakat sebagai perusahaan biro perjalanan wisata, tempat reservasi bus pariwisata,
                            dan menjual berbagai paket wisata ke berbagai tempat di pulau Jawa, Bali, dan Lombok.</p>
     			</div>
-    			<div class="col-lg-6 about-right text-lg-right mt-lg-0 mt-5">
-    				<img src="{{url('assets/img/images/about.jpg')}}" alt="" class="img-fluid abt-image" />
+    			<div class="col-lg-6 about-right text-lg-right mt-lg-5 mt-5">
+    				<img src="{{url('assets/img/images/bus.jpg')}}" alt="" class="img-fluid abt-image" />
     			</div>
     		</div>
         <div class="row mt-5 text-center">
@@ -90,7 +90,7 @@
 
 
     <!-- tabs -->
-    <section class="choose" id="choose">
+    <section class="choose" id="choose" style="font-family: Cambria; background-image: url('{{asset('assets/img/images/sampan.jpg')}}');">
     	<div class="overlay-all py-5">
     		<div class="container py-lg-5 py-sm-4">
     			<h2 class="heading text-capitalize text-center mb-lg-5 mb-4"> Mengapa memilih TripPartner.id?</h2>
@@ -158,7 +158,7 @@
     <!-- tabs -->
 
     <!-- testimonials -->
-    <section class="testimonials py-5" id="testi">
+    <section class="testimonials py-5" id="testi" style="font-family: Cambria;">
     	<div class="container py-lg-5 py-md-3">
     			<h3 class="heading text-capitalize text-center mb-lg-5 mb-4"> Komentar Customers</h3>
     		<div class="row pt-xl-4">

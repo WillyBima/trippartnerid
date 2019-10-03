@@ -14,6 +14,7 @@ use App\FasilitasBus;
 use App\Kota;
 use App\Rute;
 use App\Harga;
+use Session;
 
 use Auth;
 
@@ -64,10 +65,25 @@ class PerhitunganController extends Controller
         $hasil = array('id'=>$id,'nama_bus'=>$nama_bus,'harga'=>$harga,'jenis'=>$jenis_bus,'kota_asal'=>$kota_asal,'kota_tujuan'=>$kota_tujuan,'slug'=>$slug, 'tanggal_pergi'=>$tanggal_pergi,'tanggal_pulang'=>$tanggal_pulang);
         array_push($hasil_array, $hasil);
     }
-    // dd($hasil_array);
-    return view('frontend.booking.hasil', ['hasil'=>$hasil, 'hasil_array'=>$hasil_array, 'rute'=>$rute]);
+
+    return view('newfrontend.book.hasil', ['hasil'=>$hasil, 'hasil_array'=>$hasil_array, 'rute'=>$rute]);
   }
 
+  public function detailarmada($slug)
+  {
+
+    $rute = DB::table('rute')->select('*')->get();
+
+    $databus = DB::table('bus')->select('*')->where('slug', '=', $slug)->get();
+    $datafasilitas = DB::table('fasilitas')->select('*')->get();
+    $datafasilitasbus = DB::table('fasilitas_bus')->join('fasilitas', 'fasilitas_bus.id_fasilitas', '=', 'fasilitas.id_fasilitas')->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id')
+                      ->where('bus.slug',$slug)->select('fasilitas.nama_fasilitas', 'fasilitas.icon')->get();
+
+    // dd($datafasilitasbus);
+
+    // dd($databus, $harga);
+    return view('newfrontend.book.detailarmada', ['rute'=>$rute,'databus'=>$databus, 'datafasilitas'=>$datafasilitas, 'datafasilitasbus'=>$datafasilitasbus]);
+  }
 
   public function hitung(Request $request)
   {
@@ -102,7 +118,7 @@ class PerhitunganController extends Controller
                  ->where([['kota_asal',$kota_asal], ['kota_tujuan',$kota_tujuan],['Harga','<=',$harga]])
                  ->get();
       $bus_akhir_banget = collect($bus_akhir)->sortBy('harga')->toArray();
-
+      // dd($bus_akhir_banget);
 
        $fasilitas_bus = array();
        for ($i=0; $i < count($hasil_akhir); $i++) {
@@ -118,7 +134,7 @@ class PerhitunganController extends Controller
 
       // dd($fasilitas_bus);
 
-      return view('frontend.booking.hasil', ['bus_akhir'=>$bus_akhir_banget, 'rute'=>$rute, 'fasilitas_bus'=>$fasilitas_bus]);
+      return view('newfrontend.book.hasil', ['bus_akhir'=>$bus_akhir_banget, 'rute'=>$rute, 'fasilitas_bus'=>$fasilitas_bus]);
   }
 
   public function cariBus($kota_asal, $kota_tujuan, $jenis_bus, $harga, $fasilitas)

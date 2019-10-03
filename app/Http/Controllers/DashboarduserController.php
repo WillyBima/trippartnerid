@@ -60,6 +60,6 @@ class DashboarduserController extends Controller
              'password'=> bcrypt($request['password']),
           ]);
     // dd($user);
-    return redirect('/dashboardUser');
+    return redirect('/dashboard-user');
   }
 }

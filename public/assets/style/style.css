@@ -379,7 +379,8 @@ li > a:only-child:after { content: ''; }
 }
 
 .banner-top {
-    background: url(../images/banner1.jpg) no-repeat center;
+    background: url("assets/img/images/borobudur.jpg") no-repeat center;
+    /* background-image: url("/assets/img/images/banner1.jpg"); */
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -451,7 +452,7 @@ li > a:only-child:after { content: ''; }
 .banner-top1,
 .banner-top2,
 .banner-top3 {
-    min-height: 750px;
+    min-height: 550px;
 }
 .overlay {
     min-height: 750px;

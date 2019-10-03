@@ -3,6 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
+
+use App\Bus;
+use App\Po;
+use App\Comment;
+use App\Kota;
+use App\Rute;
+use App\User;
+use App\Order;
+use Auth;
 
 class ControllerBaru extends Controller
 {
@@ -18,7 +30,9 @@ class ControllerBaru extends Controller
 
   public function galeri()
   {
-    return view('newfrontend.galeri');
+    $bus = DB::table('bus')->select('*')->get();
+    // dd($bus);
+    return view('newfrontend.galeri',['bus'=>$bus]);
   }
 
   public function kontak()
@@ -26,9 +40,23 @@ class ControllerBaru extends Controller
     return view('newfrontend.kontak');
   }
 
+  public function submitpesan(Request $request)
+  {
+    $comment = new Comment();
+    $comment->nama = $request['nama'];
+    $comment->email = $request['email'];
+    $comment->subject = $request['subject'];
+    $comment->keterangan = $request['keterangan'];
+
+    $comment->save();
+    return redirect('/kontak-kami');
+  }
+
   public function booking()
   {
-    return view('newfrontend.book.booking');
+    $rute = DB::table('kota')->select('*')->get();
+
+    return view('newfrontend.book.booking', ['rute'=>$rute]);
   }
 
   public function hasil()
@@ -36,8 +64,38 @@ class ControllerBaru extends Controller
     return view('newfrontend.book.hasil');
   }
 
-  public function detailarmada()
+
+  public function dashboarduser()
   {
-    return view('newfrontend.book.detailarmada');
+    $email = Auth::guard('users')->user()->email;
+    $order = DB::table('order')->select('*')->where('email',$email)->orderBy('created_at','DESC')->limit(1)->get();
+    // dd($order);
+    return view('newfrontend.newdashboard.dashboarduser', ['order'=>$order]);
   }
+
+  public function pesanansaya()
+  {
+    $email = Auth::guard('users')->user()->email;
+    $order = DB::table('order')->select('*')->where([['email',$email],['status','!=','Selesai']])->orderBy('created_at','DESC')->get();
+
+    return view('newfrontend.newdashboard.pesanan',['order'=>$order]);
+  }
+
+  public function riwayatpesanan()
+  {
+    $email = Auth::guard('users')->user()->email;
+    $order = DB::table('order')->select('*')->where([['email',$email],['status','=','Selesai']])->get();
+
+    return view('newfrontend.newdashboard.riwayatpesanan',['order'=>$order]);
+  }
+
+  public function infoakun()
+  {
+    $email = Auth::guard('users')->user()->email;
+    $ubah  = DB::table('users')->select('*')->where([['email',$email]])->get();
+    // dd($ubah);
+
+    return view('newfrontend.newdashboard.infoakun',['ubah'=>$ubah]);
+  }
+
 }

@@ -28,23 +28,22 @@
     <!-- End Navbar -->
 
     <!-- banner -->
-<section class="banner_w3lspvt" id="home">
+<section class="banner_w3lspvt" id="home" style="font-family: Cambria;">
 	<div class="csslider infinity" id="slider1">
 		<input type="radio" name="slides" checked="checked" id="slides_1" />
 		<input type="radio" name="slides" id="slides_2" />
 		<input type="radio" name="slides" id="slides_3" />
-		<input type="radio" name="slides" id="slides_4" />
 		<ul>
 			<li>
-				<div class="banner-top">
+				<div class="banner-top" style="background-image: url('{{asset('assets/img/images/pantaibali.jpg')}}');">
 					<div class="overlay">
 						<div class="container">
 							<div class="w3layouts-banner-info">
 								<h3 class="text-wh">TripPartner.id</h3>
 								<h4 class="text-wh">Perusahaan Penyedia Jasa Bus Terbaik dan Terpercaya</h4>
 								<div class="buttons mt-4">
-									<a href="about.html" class="btn mr-2">Tentang Kami</a>
-									<a href="booking.html" class="btn">Booking Sekarang</a>
+									<a href="{{url('/tentang-kami')}}" class="btn mr-2">Tentang Kami</a>
+									<a href="{{url('//booking')}}" class="btn">Booking Sekarang</a>
 								</div>
 							</div>
 						</div>
@@ -52,15 +51,15 @@
 				</div>
 			</li>
 			<li>
-				<div class="banner-top1">
+				<div class="banner-top1" style="background-image: url('{{asset('assets/img/images/bromo1.jpg')}}');">
 					<div class="overlay">
 						<div class="container">
 							<div class="w3layouts-banner-info">
 								<h3 class="text-wh">TripPartner.id</h3>
 								<h4 class="text-wh">Gunakan Sistem Kami untuk Menentukan Pilihan Bus Anda</h4>
 								<div class="buttons mt-4">
-									<a href="about.html" class="btn mr-2">Tentang Kami</a>
-									<a href="booking.html" class="btn">Booking Sekarang</a>
+									<a href="{{url('/tentang-kami')}}" class="btn mr-2">Tentang Kami</a>
+									<a href="{{url('//booking')}}" class="btn">Booking Sekarang</a>
 								</div>
 							</div>
 						</div>
@@ -68,31 +67,15 @@
 				</div>
 			</li>
 			<li>
-				<div class="banner-top2">
+				<div class="banner-top2" style="background-image: url('{{asset('assets/img/images/candiborobudur.jpg')}}');">
 					<div class="overlay">
 						<div class="container">
 							<div class="w3layouts-banner-info">
 								<h3 class="text-wh">TripPartner.id</h3>
 								<h4 class="text-wh">Kami Memiliki Banyak Armada untuk Anda Gunakan</h4>
 								<div class="buttons mt-4">
-									<a href="about.html" class="btn mr-2">Tentang Kami</a>
-									<a href="booking.html" class="btn">Booking Sekarang</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="banner-top3">
-					<div class="overlay1">
-						<div class="container">
-							<div class="w3layouts-banner-info">
-								<h3 class="text-wh">It is better to travel than to arrive. Let's Be Adventurers.</h3>
-								<h4 class="text-wh">tristique senectus et netus et malesuada</h4>
-								<div class="buttons mt-4">
-									<a href="about.html" class="btn mr-2">About Us</a>
-									<a href="booking.html" class="btn">Book a Tour</a>
+									<a href="{{url('/tentang-kami')}}" class="btn mr-2">Tentang Kami</a>
+									<a href="{{url('//booking')}}" class="btn">Booking Sekarang</a>
 								</div>
 							</div>
 						</div>
@@ -104,14 +87,13 @@
 			<label for="slides_1"></label>
 			<label for="slides_2"></label>
 			<label for="slides_3"></label>
-			<label for="slides_4"></label>
 		</div>
 	</div>
 </section>
 <!-- //banner -->
 
 <!-- about -->
-<section class="about py-5">
+<section class="about py-5" style="font-family: Cambria;">
 	<div class="container py-lg-5 py-sm-4">
 		<div class="row">
 			<div class="col-lg-6 about-left">
@@ -122,11 +104,11 @@
                    setiap waktu permintaannya semakin banyak. Pada awal pembentukan, hanya ada 3 karyawan saja yang bekerja di
                    PT. Vallung Pramana Rancang.</p>
 			</div>
-			<div class="col-lg-6 about-right text-lg-right mt-lg-0 mt-5">
-				<img src="{{url('assets/img/images/about.jpg')}}" alt="" class="img-fluid abt-image" />
+			<div class="col-lg-6 about-right text-lg-right mt-lg-3 mt-5">
+				<img src="{{url('assets/img/images/bus.jpg')}}" alt="" class="img-fluid abt-image" />
 			</div>
 		</div>
-		<div class="row mt-5 text-center">
+		<div class="row mt-5 text-center" style="font-family: Cambria;">
 			<div class="col-lg-3 col-6">
 				<div class="counter">
 					<span class="fa fa-smile-o"></span>
@@ -161,7 +143,7 @@
 <!-- //about -->
 
 <!-- how to book -->
-<section class="book py-5">
+<section class="book py-5" style="font-family: Cambria;">
 	<div class="container py-lg-5 py-sm-3">
 		<h2 class="heading text-capitalize text-center"> Bagaimana Melakukan Pemesanan?</h2>
 		<div class="row mt-5 text-center">
@@ -268,7 +250,7 @@
 <!-- tour packages -->
 
 <!-- destinations -->
-<section class="destinations py-5" id="destinations">
+<section class="destinations py-5" id="destinations" style="font-family: Cambria;">
 	<div class="container py-xl-5 py-lg-3">
 		<h3 class="heading text-capitalize text-center"> Destinasi Favorit</h3>
 		<p class="text mt-2 mb-5 text-center">Berikut ini merupakan destinasi favorit yang biasa dikunjungi oleh customer kami sebelumnya, yang bisa jadi pertimbangan untuk anda.</p>
@@ -276,7 +258,7 @@
 			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center">
 				<h4 class="destination mb-3">Bandung</h4>
 				<div class="image-position position-relative">
-					<img src="{{url('assets/img/images/china.jpg')}}" class="img-fluid" alt="">
+					<img src="{{url('assets/img/images/bandung.jpg')}}" class="img-fluid" alt="">
 					<div class="rating">
 						<ul>
 							<li><span class="fa fa-star"></span></li>
@@ -297,7 +279,7 @@
 			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center">
 				<h4 class="destination mb-3">Yogyakarta</h4>
 				<div class="image-position position-relative">
-					<img src="{{url('assets/img/images/malaysia.jpg')}}" class="img-fluid" alt="">
+					<img src="{{url('assets/img/images/jogja.jpg')}}" class="img-fluid" alt="">
 					<div class="rating">
 						<ul>
 							<li><span class="fa fa-star"></span></li>
@@ -318,7 +300,7 @@
 			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mt-md-0 mt-4">
 				<h4 class="destination mb-3">Malang</h4>
 				<div class="image-position position-relative">
-					<img src="{{url('assets/img/images/japan.jpg')}}" class="img-fluid" alt="">
+					<img src="{{url('assets/img/images/malang.jpg')}}" class="img-fluid" alt="">
 					<div class="rating">
 						<ul>
 							<li><span class="fa fa-star"></span></li>
@@ -339,7 +321,7 @@
 			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mt-md-0 mt-4">
 				<h4 class="destination mb-3">Bali</h4>
 				<div class="image-position position-relative">
-					<img src="{{url('assets/img/images/singapore.jpg')}}" class="img-fluid" alt="">
+					<img src="{{url('assets/img/images/bali.jpg')}}" class="img-fluid" alt="">
 					<div class="rating">
 						<ul>
 							<li><span class="fa fa-star"></span></li>
@@ -364,7 +346,7 @@
 
 
 <!-- text -->
-<section class="text-content">
+<section class="text-content" style="font-family: Cambria; background-image: url('{{asset('assets/img/images/pasarterapung.jpg')}}');">
 	<div class="overlay-inner py-5">
 		<div class="container py-md-3">
 			<div class="test-info">

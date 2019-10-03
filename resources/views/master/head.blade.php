@@ -10,7 +10,7 @@
 <!-- new css -->
 <link rel="stylesheet" type="text/css" href="{{url('assets/style/bootstrap.css')}}">
 <link rel="stylesheet" type="text/css" href="{{url('assets/style/css_slider.css')}}">
-<link rel="stylesheet" type="text/css" href="{{url('assets/style/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{url('assets/style/font-awesome.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{url('assets/style/style.css')}}">
 
 <!-- bootstrap css file -->

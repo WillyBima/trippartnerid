@@ -76,7 +76,7 @@ class RegisterController extends Controller
 
       if($auth)
       {
-        return redirect('/dashboardUser');
+        return redirect('/dashboard-user');
       }
       else{
         return redirect()->back();

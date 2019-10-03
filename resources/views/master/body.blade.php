@@ -44,10 +44,15 @@
 			<input type="checkbox" id="drop" />
 			<ul class="menu ml-auto mt-1">
 				<li class=""><a href="{{url('/beranda')}}">Beranda</a></li>
-				<li class=""><a href="{{url('/tentang-kami')}}">Tentang Kami</a></li>
+        <li class=""><a href="{{url('/booking')}}">Booking</a></li>
 				<li class=""><a href="{{url('/galeri')}}">Galeri</a></li>
+        <li class=""><a href="{{url('/tentang-kami')}}">Tentang Kami</a></li>
 				<li class=""><a href="{{url('/kontak-kami')}}">Kontak</a></li>
-				<li class="booking"><a href="{{url('/booking')}}">Booking Sekarang</a></li>
+        @if(!Auth::guard('users')->user())
+        <li class="booking"><a href="{{url('/login')}}">LOGIN</a></li>
+        @else
+        <li class="booking"><a href="{{url('/dashboard-user')}}">{{Auth::guard('users')->user()->nama_lengkap}}</a></li>
+        @endif
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -92,7 +97,7 @@
 @section('newfooter')
 <!--footer -->
 <footer>
-<section class="footer footer_w3layouts_section_1its py-5">
+<section class="footer footer_w3layouts_section_1its py-5" style="font-family: Cambria;">
 	<div class="container py-lg-4 py-3">
 		<div class="row footer-top">
 			<div class="col-lg-3 col-sm-6 footer-grid_section_1its_w3">
@@ -100,10 +105,9 @@
 					<h3>Informasi Perusahaan</h3>
 				</div>
 				<div class="footer-text">
-					<p>Location : 1234 lock, Charlotte, North Carolina, United States</p>
-					<p>Phone : +12 534894364</p>
-					<p>Email : <a href="mailto:info@example.com">info@example.com</a></p>
-					<p>Fax : +12 534894364</p>
+					<p>Location : Ged. SATMARINDO Lt.1, Jalan Ampera Raya no.5, Jakarta Selatan</p>
+					<p>Phone : +62 857-7233-5514</p>
+					<p>Email : <a href="#">trippartner@gmail.com</a></p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-sm-6 footer-grid_section mt-sm-0 mt-4">

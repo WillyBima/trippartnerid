@@ -14,10 +14,13 @@
 Route::get('/beranda', 'ControllerBaru@newberanda');
 Route::get('/tentang-kami', 'ControllerBaru@newabout');
 Route::get('/galeri', 'ControllerBaru@galeri');
+
 Route::get('/kontak-kami', 'ControllerBaru@kontak');
+Route::post('/kontak-kami/submitpesan','ControllerBaru@submitpesan');
+
 Route::get('/booking', 'ControllerBaru@booking');
-Route::get('/hasil-pencarian', 'ControllerBaru@hasil');
-Route::get('/detail-armada', 'ControllerBaru@detailarmada');
+Route::post('/cari-armada','PerhitunganController@search');
+Route::get('/detail-armada/{nama_bus}', 'PerhitunganController@detailarmada');
 
 
 Route::get('/', 'BerandaController@index');
@@ -46,6 +49,12 @@ Route::group(['middleware' => ['AuthUser']], function() {
   Route::get('/dashboardUser/accountInfo', 'DashboarduserController@accountInfo');
   Route::post('/dashboardUser/ubahakun/{email}', 'DashboarduserController@ubahakun');
   Route::get('/logout', 'RegisterController@logout');
+
+  Route::get('/dashboard-user', 'ControllerBaru@dashboarduser');
+  Route::get('/dashboard-user/pesanan-saya', 'ControllerBaru@pesanansaya');
+  Route::get('/dashboard-user/riwayat-pesanan', 'ControllerBaru@riwayatpesanan');
+  Route::get('/dashboard-user/informasi-akun', 'ControllerBaru@infoakun');
+  Route::post('/dashboard-user/ubahakun/{email}', 'DashboarduserController@ubahakun');
 });
 
 Route::get('/daftar', 'RegisterController@daftar');
