@@ -43,7 +43,7 @@
 								<h4 class="text-wh">Perusahaan Penyedia Jasa Bus Terbaik dan Terpercaya</h4>
 								<div class="buttons mt-4">
 									<a href="{{url('/tentang-kami')}}" class="btn mr-2">Tentang Kami</a>
-									<a href="{{url('//booking')}}" class="btn">Booking Sekarang</a>
+									<a href="{{url('/booking')}}" class="btn">Booking Sekarang</a>
 								</div>
 							</div>
 						</div>
@@ -59,7 +59,7 @@
 								<h4 class="text-wh">Gunakan Sistem Kami untuk Menentukan Pilihan Bus Anda</h4>
 								<div class="buttons mt-4">
 									<a href="{{url('/tentang-kami')}}" class="btn mr-2">Tentang Kami</a>
-									<a href="{{url('//booking')}}" class="btn">Booking Sekarang</a>
+									<a href="{{url('/booking')}}" class="btn">Booking Sekarang</a>
 								</div>
 							</div>
 						</div>
@@ -75,7 +75,7 @@
 								<h4 class="text-wh">Kami Memiliki Banyak Armada untuk Anda Gunakan</h4>
 								<div class="buttons mt-4">
 									<a href="{{url('/tentang-kami')}}" class="btn mr-2">Tentang Kami</a>
-									<a href="{{url('//booking')}}" class="btn">Booking Sekarang</a>
+									<a href="{{url('/booking')}}" class="btn">Booking Sekarang</a>
 								</div>
 							</div>
 						</div>

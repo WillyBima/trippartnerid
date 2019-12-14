@@ -65,6 +65,9 @@ class PerhitunganController extends Controller
         $hasil = array('id'=>$id,'nama_bus'=>$nama_bus,'harga'=>$harga,'jenis'=>$jenis_bus,'kota_asal'=>$kota_asal,'kota_tujuan'=>$kota_tujuan,'slug'=>$slug, 'tanggal_pergi'=>$tanggal_pergi,'tanggal_pulang'=>$tanggal_pulang);
         array_push($hasil_array, $hasil);
     }
+    // dd($hasil_array);
+    $hasil_akhir = collect($hasil_array)->sortBy('harga')->toArray();
+    // dd($hasil_akhir);
 
     return view('newfrontend.book.hasil', ['hasil'=>$hasil, 'hasil_array'=>$hasil_array, 'rute'=>$rute]);
   }
@@ -72,12 +75,25 @@ class PerhitunganController extends Controller
   public function detailarmada($slug)
   {
 
-    $rute = DB::table('rute')->select('*')->get();
+    $rute = DB::table('rute')
+          ->select('*')
+          ->get();
 
-    $databus = DB::table('bus')->select('*')->where('slug', '=', $slug)->get();
-    $datafasilitas = DB::table('fasilitas')->select('*')->get();
-    $datafasilitasbus = DB::table('fasilitas_bus')->join('fasilitas', 'fasilitas_bus.id_fasilitas', '=', 'fasilitas.id_fasilitas')->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id')
-                      ->where('bus.slug',$slug)->select('fasilitas.nama_fasilitas', 'fasilitas.icon')->get();
+    $databus = DB::table('bus')
+             ->select('*')
+             ->where('slug', '=', $slug)
+             ->get();
+
+    $datafasilitas = DB::table('fasilitas')
+                   ->select('*')
+                   ->get();
+
+    $datafasilitasbus = DB::table('fasilitas_bus')
+                      ->join('fasilitas', 'fasilitas_bus.id_fasilitas', '=', 'fasilitas.id_fasilitas')
+                      ->join('bus', 'fasilitas_bus.id_bus', '=', 'bus.id')
+                      ->where('bus.slug',$slug)
+                      ->select('fasilitas.nama_fasilitas', 'fasilitas.icon')
+                      ->get();
 
     // dd($datafasilitasbus);
 

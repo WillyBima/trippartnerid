@@ -38,12 +38,12 @@
 		<!-- nav -->
 		<nav class="py-md-4 py-3 d-lg-flex">
 			<div id="logo">
-				<h1 class="mt-md-0 mt-2"> <a href="#"><span class="fa fa-map-signs"></span> TripPartner.id </a></h1>
+				<h1 class="mt-md-0 mt-2"> <a href="{{url('/')}}"><span class="fa fa-map-signs"></span> TripPartner.id </a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu ml-auto mt-1">
-				<li class=""><a href="{{url('/beranda')}}">Beranda</a></li>
+				<li class=""><a href="{{url('/')}}">Beranda</a></li>
         <li class=""><a href="{{url('/booking')}}">Booking</a></li>
 				<li class=""><a href="{{url('/galeri')}}">Galeri</a></li>
         <li class=""><a href="{{url('/tentang-kami')}}">Tentang Kami</a></li>
@@ -105,8 +105,8 @@
 					<h3>Informasi Perusahaan</h3>
 				</div>
 				<div class="footer-text">
-					<p>Location : Ged. SATMARINDO Lt.1, Jalan Ampera Raya no.5, Jakarta Selatan</p>
-					<p>Phone : +62 857-7233-5514</p>
+					<p>Alamat : Ged. SATMARINDO Lt.1, Jalan Ampera Raya no.5, Jakarta Selatan</p>
+					<p>Kontak : +62 857-7233-5514</p>
 					<p>Email : <a href="#">trippartner@gmail.com</a></p>
 				</div>
 			</div>

@@ -42,9 +42,9 @@
 		<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
       @foreach($bus as $bus)
       <div class="col-md-3 col-sm-6 col-6 destinations-grids text-center">
-				<h4 class="destination mb-3">{{$bus->nama_bus}}</h4>
+				<h4 class="destination mb-3" style=" margin-top: 30px;">{{$bus->nama_bus}}</h4>
 				<div class="image-position position-relative">
-					<img src="{{url('img/bus/'.$bus->gambar_bus)}}" class="img-fluid" alt="">
+					<img src="{{url('img/bus/'.$bus->gambar_bus)}}" class="img-fluid" style="width: 252px; height: 252px;" alt="">
 				</div>
 			</div>
       @endforeach

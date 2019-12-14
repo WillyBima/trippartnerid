@@ -59,6 +59,24 @@ class ControllerBaru extends Controller
     return view('newfrontend.book.booking', ['rute'=>$rute]);
   }
 
+  public function submitpesanan(Request $request)
+  {
+    $order = new Order();
+    $order->nama           = Auth::guard('users')->user()->nama_lengkap;
+    $order->email          = Auth::guard('users')->user()->email;
+    $order->no_hp          = $request['no_hp'];
+    $order->nama_bus       = $request['nama_bus'];
+    $order->harga          = $request['harga'];
+    $order->alamat_jemput  = $request['alamat_jemput'];
+    $order->alamat_tujuan  = $request['alamat_tujuan'];
+    $order->tanggal_pergi  = $request['tanggal_pergi'];
+    $order->tanggal_pulang = $request['tanggal_pulang'];
+    $order->status         = 'Belum Diproses';
+
+    $order->save();
+    return redirect('/dashboard-user/pesanan-saya');
+  }
+
   public function hasil()
   {
     return view('newfrontend.book.hasil');

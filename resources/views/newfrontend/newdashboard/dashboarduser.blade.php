@@ -58,7 +58,7 @@
               </li>
           </ul>
       </div>
-      <div id="page-content-container" style="padding-left: 130px;padding-top: 0px;padding-right: 85px; font-family: Cambria;">
+      <div id="page-content-container" style="padding-left: 130px; padding-top: 0px;padding-right: 85px; font-family: Cambria; margin-bottom: 0px;">
           <div class="container-fluid">
             <div class="row">
               <h4 style="margin-bottom: 20px;">DASHBOARD SAYA</h4>
@@ -72,13 +72,13 @@
                 </form>
               </div>
             </div>
-              <div class="row" style="margin-bottom: 30px;">
+              <div class="row" style="margin-bottom: 10px;">
                 <div class="col-lg-6 contact-left-form" style="margin-bottom: 20px;">
                   <form action="#" method="post" class="row">
                     <div class="col-lg-12 form-group contact-forms">
                       <h5><b>Informasi Kontak</b></h5>
                       <hr style="width: auto; border-bottom: 1px solid #95a5a6;">
-                      <a href="{{url('/dashboard-user/informasi-akun')}}"><img src="{{url('assets/img/icon/pencil.png')}}" style="margin-left: 350px;"></a>
+                      <a href="{{url('/dashboard-user/informasi-akun')}}"><img src="{{url('assets/img/icon/pencil.png')}}" style="margin-left: 390px;"></a>
                       <br><br>
                       <p style="text-transform: capitalize;">{{Auth::guard('users')->user()->nama_lengkap}}</p>
                       <p>{{Auth::guard('users')->user()->email}}</p>
@@ -91,7 +91,7 @@
                     <div class="col-lg-12 form-group contact-forms">
                       <h5><b>My Orders</b></h5>
                       <hr style="width: auto; border-bottom: 1px solid #95a5a6;">
-                      <a href="{{url('/dashboard-user/pesanan-saya')}}" style="margin-left: 290px; color: #d35400">Lihat Detail</a>
+                      <a href="{{url('/dashboard-user/pesanan-saya')}}" style="margin-left: 320px; color: #d35400">Lihat Detail</a>
                       <br><br>
                       <p style="font-size: 20px;"><b><img src="{{url('assets/img/icon/bus depan.png')}}"> {{$order->alamat_jemput}} <img src="{{url('assets/img/icon/next.png')}}" alt=""> {{$order->alamat_tujuan}}</b></p>
                       <p>{{date('l, d F Y', strtotime($order->tanggal_pergi))}}</p>

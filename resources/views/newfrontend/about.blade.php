@@ -106,21 +106,21 @@
     								<div class="inner-sec-grid">
     									<span class="fa fa-gift"></span>
     									<h4 class="mt-md-4 mt-2">Pelayanan Terbaik</h4>
-    									<p class="mt-3">Lorem ipsum dolor sit amet, conse ctetur elit. Cras lobortis mollis arcu, vel vulputate justo.</p>
+    									<p class="mt-3">Kami memberikan pelayanan terbaik disetiap perjalanan yang anda lakukan.</p>
     								</div>
     							</div>
     							<div class="col-lg-4 col-md-6 inner-w3pvt-wrap">
     								<div class="inner-sec-grid">
     									<span class="fa fa-bus"></span>
     									<h4 class="mt-md-4 mt-2">Armada Terbaru</h4>
-    									<p class="mt-3">Lorem ipsum dolor sit amet, conse ctetur elit. Cras lobortis mollis arcu, vel vulputate justo.</p>
+    									<p class="mt-3">Kami menyediakan armada terbaru dan terbaik yang dapat anda gunakan didalam perjalanan.</p>
     								</div>
     							</div>
     							<div class="col-lg-4 col-md-6 inner-w3pvt-wrap">
     								<div class="inner-sec-grid">
     									<span class="fa fa-money"></span>
     									<h4 class="mt-md-4 mt-2">Harga Bersahabat</h4>
-    									<p class="mt-3">Lorem ipsum dolor sit amet, conse ctetur elit. Cras lobortis mollis arcu, vel vulputate justo.</p>
+    									<p class="mt-3">Harga yang kami tawarkan merupakan harga terbaik untuk setiap perjalanannya.</p>
     								</div>
     							</div>
     						</div>
@@ -131,21 +131,21 @@
     								<div class="inner-sec-grid">
     									<span class="fa fa-headphones"></span>
     									<h4 class="mt-md-4 mt-2">Fasilitas Terbaik</h4>
-    									<p class="mt-3">Lorem ipsum dolor sit amet, conse ctetur elit. Cras lobortis mollis arcu, vel vulputate justo.</p>
+    									<p class="mt-3">Fasilitas yang dimiliki setiap armada dapat membuat anda nyaman dalam perjalanan.</p>
     								</div>
     							</div>
     							<div class="col-lg-4 col-md-6 inner-w3pvt-wrap">
     								<div class="inner-sec-grid">
     									<span class="fa fa-users"></span>
     									<h4 class="mt-md-4 mt-2">Crew Terbaik</h4>
-    									<p class="mt-3">Lorem ipsum dolor sit amet, conse ctetur elit. Cras lobortis mollis arcu, vel vulputate justo.</p>
+    									<p class="mt-3">Kami memiliki crew berpengalaman yang dapat membantu anda selama dalam perjalanan.</p>
     								</div>
     							</div>
     							<div class="col-lg-4 inner-w3pvt-wrap">
     								<div class="inner-sec-grid">
     									<span class="fa fa-map-signs"></span>
     									<h4 class="mt-md-4 mt-2">Destinasi Favorit</h4>
-    									<p class="mt-3">Lorem ipsum dolor sit amet, conse ctetur elit. Cras lobortis mollis arcu, vel vulputate justo.</p>
+    									<p class="mt-3">Kami menawarkan berbagai destinasi terbaik yang ada di Indonesia.</p>
     								</div>
     							</div>
     						</div>

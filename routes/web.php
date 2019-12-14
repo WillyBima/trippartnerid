@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/beranda', 'ControllerBaru@newberanda');
+Route::get('/', 'ControllerBaru@newberanda');
 Route::get('/tentang-kami', 'ControllerBaru@newabout');
 Route::get('/galeri', 'ControllerBaru@galeri');
 
@@ -21,9 +21,9 @@ Route::post('/kontak-kami/submitpesan','ControllerBaru@submitpesan');
 Route::get('/booking', 'ControllerBaru@booking');
 Route::post('/cari-armada','PerhitunganController@search');
 Route::get('/detail-armada/{nama_bus}', 'PerhitunganController@detailarmada');
+Route::post('/detail-armada/submit-pesanan','ControllerBaru@submitpesanan');
 
-
-Route::get('/', 'BerandaController@index');
+// Route::get('/', 'BerandaController@index');
 
 Route::get('/armada', 'ArmadaController@armada');
 Route::get('/armada/detail-armada/{nama_po}', 'ArmadaController@detailarmada');
@@ -72,7 +72,7 @@ Route::delete('/menuComment/{id}', 'DashboardController@hapusComment');
 
 Route::get('/pdf/{id}', 'DashboardController@pdf');
 
-// Dashboard AdminLTE
+// ROUTES UNTUK HALAMAN ADMIN
 Route::get('/dashboardAdmin', 'DashboardController@dashboard');
 Route::get('/MenuBus', 'DashboardController@menubus');
 Route::get('/MenuPO', 'DashboardController@menupo');
